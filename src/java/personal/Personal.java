@@ -1,4 +1,4 @@
-package java;
+package personal;
 
 /*
  abstract oder interface

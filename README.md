@@ -14,6 +14,7 @@ Erdmännchen, Warzenschweine, Ameisenbären
 Stinktier, Bären & Beeren
 Pinguine & Seelöwen
 --- Futterlager 
+--- Hilfsvariable für ges. Futtermenge je Futterart --> Futterlager.setMinFutter()
 
 Marcel:
 --- Gehege:
@@ -25,3 +26,5 @@ Wald
 Eisgehege
 --- Personal:
 Artzt & Pfleger
+
+GUI: Java Swing --> [Tutorial mäsisch] https://www.youtube.com/watch?v=9Cluik59N6M
