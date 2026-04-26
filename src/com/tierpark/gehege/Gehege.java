@@ -1,4 +1,4 @@
-package gehege;
+package tierpark.gehege;
 
 /*
 -> abstract oder Interface 
@@ -13,7 +13,7 @@ package gehege;
 */
 
 
-abstract class Gehege{
+public abstract class Gehege{
     private int id;
     private int maxTiere;
     private int untergebrachteTiere;

@@ -1,4 +1,4 @@
-package personal;
+package tierpark.personal;
 
 /*
  abstract oder interface

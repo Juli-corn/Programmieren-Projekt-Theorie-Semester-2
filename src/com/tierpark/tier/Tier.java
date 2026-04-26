@@ -1,4 +1,4 @@
-package tier;
+package tierpark.tier;
 /* -> abstract
     Attribute:
         - int id
@@ -10,7 +10,7 @@ package tier;
         - gehege Gehege
  */ 
 
-import java.gehege.Gehege;
+import tierpark.gehege.Gehege;
 
 public abstract class Tier {
     protected int tId;

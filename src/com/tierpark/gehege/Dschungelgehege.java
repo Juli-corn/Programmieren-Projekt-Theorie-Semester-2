@@ -1,4 +1,4 @@
-package gehege;
+package tierpark.gehege;
 
 
 public class Dschungelgehege extends Gehege {

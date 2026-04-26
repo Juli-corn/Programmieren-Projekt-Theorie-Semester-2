@@ -1,6 +1,6 @@
-package tier.tiere;
+package tierpark.tier.tiere;
 
-import tier.Tier;
+import tierpark.tier.Tier;
 
 public class Nacktmull extends Tier {
 

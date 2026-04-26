@@ -1,4 +1,4 @@
-package personal;
+package tierpark.personal;
 
 public class Tierarzt extends Personal {
     private String spezialisierung = "Tierarzt";

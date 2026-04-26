@@ -1,4 +1,4 @@
-package personal;
+package tierpark.personal;
 
 public class Pfleger extends Personal {
     private String spezialisierung = "Pfleger";
