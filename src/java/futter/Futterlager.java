@@ -12,12 +12,14 @@ package futter;
 public abstract class Futterlager {
 
     protected int fId;
+    protected String name;
     protected String futterart;
     protected int maxFutter;        // Kg
     protected int minFutter;        // Kg | Wert, nach dessen Unterschreitung nachbestellt wird. (evtl. durch Funktion bestimmen -> ges. Summe Futterart pro Tag als min Wert)
 
-    public Futterlager(int id, String futterart, int maxFutter) {
+    public Futterlager(int id,String name, String futterart, int maxFutter) {
         this.fId = id;
+        this.name = name;
         this.futterart = futterart;
         this.maxFutter = maxFutter;
         this.minFutter = 0;
