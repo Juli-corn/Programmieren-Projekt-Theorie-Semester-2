@@ -1,5 +1,16 @@
 package app;
 
+public class main{
+
+    public static int id = 0;
+
+    public static void main(String[] args){
+
+        
+    
+
+    }
+}
 /*
     Funktionen:
         - Tier Objekt erstellen + Gehege zuweisen

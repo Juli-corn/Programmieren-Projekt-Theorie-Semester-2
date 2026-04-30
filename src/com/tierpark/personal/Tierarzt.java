@@ -1,14 +1,24 @@
-package tierpark.personal;
+package personal;
+
+import tier.Tier;
 
 public class Tierarzt extends Personal {
-    private String spezialisierung = "Tierarzt";
+
 
     public Tierarzt(String Name) {
-        super(Name);
+        super(Name, "Tierarzt");
     }
 
-    public String getSpezialisierung() {
-        return spezialisierung;
+    public String heileTier(Tier tier) {
+
+        if(tier.istKrank() == true) {
+            tier.setKrank(false);
+            return "Der Tierarzt " + this.getName() + " hat das Tier geheilt.";
+        }else{
+            return "Das Tier ist nicht krank, es muss nicht geheilt werden.";
+        }
+
+        
     }
     
 }
