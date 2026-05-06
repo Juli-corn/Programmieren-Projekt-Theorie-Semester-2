@@ -1,14 +1,11 @@
-package tierpark.personal;
+package personal;
 
 public class Pfleger extends Personal {
-    private String spezialisierung = "Pfleger";
 
     public Pfleger(String Name) {
-        super(Name);
+        super(Name, "Pfleger");
     }
 
-    public String getSpezialisierung() {
-        return spezialisierung;
-    }
+
      
 }

@@ -1,4 +1,5 @@
-package tierpark.personal;
+package personal;
+import app.main;
 
 /*
  abstract oder interface
@@ -16,8 +17,9 @@ public abstract class Personal {
 
     private String Name;
     private int id;
+    private String job;
 
-    public Personal(String Name) {
+    public Personal(String Name, String job) {
         main.id++;
         this.Name = Name;
         this.id = main.id;
@@ -33,7 +35,8 @@ public abstract class Personal {
         return id;
     }
 
-    
-
+    public String getJob() {
+        return job;
+    }
 
 }

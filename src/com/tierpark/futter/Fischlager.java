@@ -1,4 +1,4 @@
-package tierpark.futter;
+package futter;
 
 public class Fischlager extends Futterlager {
 

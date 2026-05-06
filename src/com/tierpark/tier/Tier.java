@@ -1,4 +1,4 @@
-package tierpark.tier;
+package tier;
 /* -> abstract
     Attribute:
         - int id
@@ -10,7 +10,7 @@ package tierpark.tier;
         - gehege Gehege
  */ 
 
-import tierpark.gehege.Gehege;
+import gehege.Gehege;
 
 public abstract class Tier {
     protected int tId;
@@ -21,6 +21,8 @@ public abstract class Tier {
     protected String lieblingsfutter;
     protected Gehege gehege;
     protected int futtermenge;     // Verbrauch kg/Tag
+    protected String gehegetyp;
+    
 
     public Tier(int id, String name, int alter, String art, String lieblingsfutter, int futtermenge) {
         this.tId = id;
@@ -71,6 +73,11 @@ public abstract class Tier {
 
     public int getFuttermenge() {
         return futtermenge;
+    }
+
+
+    public String getGehegeTyp(){
+        return gehegetyp;
     }
 
 };
