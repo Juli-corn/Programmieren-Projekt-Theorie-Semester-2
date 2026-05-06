@@ -97,11 +97,12 @@ public abstract class Gehege{
         return typ;
     }
 
-    public String futterverbrauch() {
+    public int[] futterverbrauch() {
 
         int fischfutterverbrauch = 0;
         int fleischfutterverbrauch = 0;
         int pflanzenfutterverbrauch = 0;
+        int[] verbrauch = new int[2];
 
         for (int i = 0; i < tier.length; i++) {
 
@@ -114,8 +115,13 @@ public abstract class Gehege{
             } else if (tier[i].getLieblingsfutter().equals("Pflanzenfutter")) {
                 pflanzenfutterverbrauch = pflanzenfutterverbrauch + tier[i].getFuttermenge();
             }
+
         }
+
+        verbrauch[0] = fischfutterverbrauch;
+        verbrauch[1] = fleischfutterverbrauch;
+        verbrauch[2] = pflanzenfutterverbrauch;
         
-        return "Fischfutter: " + fischfutterverbrauch + ", Fleischfutter: " + fleischfutterverbrauch + ", Pflanzenfutter: " + pflanzenfutterverbrauch;
+        return verbrauch;
     }
 }
