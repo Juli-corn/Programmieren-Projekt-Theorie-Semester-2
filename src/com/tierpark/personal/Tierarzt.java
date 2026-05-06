@@ -11,8 +11,8 @@ public class Tierarzt extends Personal {
 
     public String heileTier(Tier tier) {
 
-        if(tier.istKrank() == true) {
-            tier.setKrank(false);
+        if(tier.getIstKrank() == true) {
+            tier.setIstKrank(false);
             return "Der Tierarzt " + this.getName() + " hat das Tier geheilt.";
         }else{
             return "Das Tier ist nicht krank, es muss nicht geheilt werden.";

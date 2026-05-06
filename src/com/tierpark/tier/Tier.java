@@ -10,8 +10,6 @@ package tier;
         - gehege Gehege
  */ 
 
-import gehege.Gehege;
-
 public abstract class Tier {
     protected int tId;
     protected String name;
@@ -19,12 +17,11 @@ public abstract class Tier {
     protected String art;
     protected boolean istKrank;
     protected String lieblingsfutter;
-    protected Gehege gehege;
     protected int futtermenge;     // Verbrauch kg/Tag
     protected String gehegetyp;
     
 
-    public Tier(int id, String name, int alter, String art, String lieblingsfutter, int futtermenge) {
+    public Tier(int id, String name, int alter, String art, String lieblingsfutter, int futtermenge, String gehegetyp) {
         this.tId = id;
         this.name = name;
         this.alter = alter;
@@ -32,6 +29,7 @@ public abstract class Tier {
         this.lieblingsfutter = lieblingsfutter;
         this.istKrank = false;
         this.futtermenge = futtermenge;
+        this.gehegetyp = gehegetyp;
     }
 
 
@@ -61,14 +59,6 @@ public abstract class Tier {
 
     public String getLieblingsfutter() {
         return lieblingsfutter;
-    }
-
-    public Gehege getGehege() {
-        return gehege;
-    }
-
-    public void setGehege(Gehege gehege) {
-        this.gehege = gehege;
     }
 
     public int getFuttermenge() {

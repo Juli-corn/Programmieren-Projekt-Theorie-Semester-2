@@ -2,7 +2,7 @@ package futter;
 
 public class Pflanzenlager extends Futterlager {
 
-    public Pflanzenlager(int id, String name, String futterart, int maxFutter ) {
-        super(id, name, futterart, maxFutter);
+    public Pflanzenlager(int id, String name, int maxFutter ) {
+        super(id, name, maxFutter, "Pflanzen");
     }
 }
