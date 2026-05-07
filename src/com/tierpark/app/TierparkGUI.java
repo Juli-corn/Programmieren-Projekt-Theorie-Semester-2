@@ -8,10 +8,16 @@ ACHTUNG ACHTUNG! Dies ist kein fertiges Produkt, wir müssen das noch auf unsere
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import gehege.Dschungelgehege;
+import gehege.Gehege;
+import gehege.Savannengehege;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class TierparkGUI extends JFrame {
 
@@ -62,27 +68,47 @@ public class TierparkGUI extends JFrame {
     }
 
     // Gehege Fenster
+    
+    private List<Gehege> gehegeListe = new ArrayList<>();
+
     private void openGehegeWindow() {
         JFrame frame = new JFrame("Gehege");
-        frame.setSize(600, 300);
+        frame.setSize(700, 350);
         frame.setLocationRelativeTo(this);
+        frame.setLayout(new BorderLayout());
 
-        String[] columns = {"Typ", "T/T", "K", "FT", "Tiere"};
+        String[] columns = {"Typ", "T/T", "FT", "Tiere", "Bearbeiten"};
 
         DefaultTableModel model = new DefaultTableModel(columns, 0);
+        JTable table = new JTable(model) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column == 3 || column == 4;
+            }
+        };
 
-        model.addRow(new Object[]{"Savanne", "5/10", 3, "12:00", "Tiere"});
-        model.addRow(new Object[]{"Wald", "2/8", 2, "09:00", "Tiere"});
-
-        JTable table = new JTable(model);
+        refreshTable(model);
 
         // Button in Tabelle (Tiere-Spalte)
         table.getColumn("Tiere").setCellRenderer(new ButtonRenderer());
         table.getColumn("Tiere").setCellEditor(new ButtonEditor(new JCheckBox()));
 
-        frame.add(new JScrollPane(table));
+        // Bearbeiten-Button
+        table.getColumn("Bearbeiten").setCellRenderer(new ButtonRenderer());
+        table.getColumn("Bearbeiten").setCellEditor(
+            new EditButtonEditor(new JCheckBox(), gehegeListe, model, frame)
+        );
+
+        // Erstellen-Button
+        JButton createButton = new JButton("Gehege erstellen");
+        createButton.addActionListener(e -> openCreateDialog(frame, model));
+
+        frame.add(new JScrollPane(table), BorderLayout.CENTER);
+        frame.add(createButton, BorderLayout.SOUTH);
+
         frame.setVisible(true);
     }
+
 
     // Pfleger Fenster
     private void openPflegerWindow() {
@@ -118,6 +144,118 @@ public class TierparkGUI extends JFrame {
         frame.setVisible(true);
     }
 
+    
+    private void refreshTable(DefaultTableModel model) {
+        model.setRowCount(0);
+
+        for (Gehege g : gehegeListe) {
+            model.addRow(new Object[]{
+                    g.getTyp(),
+                    g.getAnzahlUntergebrachteTiere() + "/" + g.getMaxTiere(),
+                    g.getFuetterungszeit(),
+                    "Bearbeiten"
+            });
+        }
+    }
+
+    
+    private void openCreateDialog(JFrame parent, DefaultTableModel model) {
+        JDialog dialog = new JDialog(parent, "Gehege erstellen", true);
+        dialog.setSize(300, 250);
+        dialog.setLayout(new GridLayout(4, 2));
+
+        JComboBox<String> typBox = new JComboBox<>(new String[]{"Savanne", "Dschungel"});
+        JTextField maxTiereField = new JTextField();
+        JTextField fuetterungField = new JTextField();
+
+        dialog.add(new JLabel("Typ:"));
+        dialog.add(typBox);
+
+        dialog.add(new JLabel("Max Tiere:"));
+        dialog.add(maxTiereField);
+
+        dialog.add(new JLabel("Fütterungszeit:"));
+        dialog.add(fuetterungField);
+
+        JButton createBtn = new JButton("Erstellen");
+
+        createBtn.addActionListener(e -> {
+            String typ = (String) typBox.getSelectedItem();
+            int max = Integer.parseInt(maxTiereField.getText());
+            String ft = fuetterungField.getText();
+
+            Gehege g;
+
+            switch (typ) {
+                case "Savanne":
+                    g = new Savannengehege(max, ft);
+                    break;
+                case "Dschungel":
+                    g = new Dschungelgehege(max, ft);
+                    break;
+                default:
+                    return;
+            }
+
+            gehegeListe.add(g);
+            refreshTable(model);
+
+            dialog.dispose();
+        });
+
+        dialog.add(new JLabel());
+        dialog.add(createBtn);
+
+        dialog.setLocationRelativeTo(parent);
+        dialog.setVisible(true);
+    }
+
+    
+    private void openEditDialog(Gehege g, JFrame parent, DefaultTableModel model) {
+        JDialog dialog = new JDialog(parent, "Gehege bearbeiten", true);
+        dialog.setSize(300, 250);
+        dialog.setLayout(new GridLayout(4, 2));
+
+        JTextField maxTiereField = new JTextField(String.valueOf(g.getMaxTiere()));
+        JTextField fuetterungField = new JTextField(g.getFuetterungszeit());
+
+        dialog.add(new JLabel("Typ:"));
+        dialog.add(new JLabel(g.getTyp()));  // nicht änderbar
+
+        dialog.add(new JLabel("Max Tiere:"));
+        dialog.add(maxTiereField);
+
+        dialog.add(new JLabel("Fütterungszeit:"));
+        dialog.add(fuetterungField);
+
+        JButton saveBtn = new JButton("Speichern");
+
+        saveBtn.addActionListener(e -> {
+            try {
+                int max = Integer.parseInt(maxTiereField.getText());
+                String ft = fuetterungField.getText();
+
+                g.setMaxTiere(max);                 // oder Setter benutzen!
+                g.setFuetterungszeit(ft);           // dito
+
+                refreshTable(model);
+                dialog.dispose();
+
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(dialog, "Bitte gültige Zahl eingeben!");
+            }
+        });
+
+        dialog.add(new JLabel());
+        dialog.add(saveBtn);
+
+        dialog.setLocationRelativeTo(parent);
+        dialog.setVisible(true);
+    }
+
+
+
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new TierparkGUI().setVisible(true));
     }
@@ -152,7 +290,45 @@ public class TierparkGUI extends JFrame {
         public Object getCellEditorValue() {
             return "Öffnen";
         }
+
     }
+
+    
+    class EditButtonEditor extends DefaultCellEditor {
+        private JButton button;
+        private int row;
+        private List<Gehege> gehegeListe;
+        private DefaultTableModel model;
+        private JFrame parent;
+
+        public EditButtonEditor(JCheckBox checkBox, List<Gehege> liste,
+                                DefaultTableModel model, JFrame parent) {
+            super(checkBox);
+            this.gehegeListe = liste;
+            this.model = model;
+            this.parent = parent;
+
+            button = new JButton("Bearbeiten");
+
+            button.addActionListener(e -> {
+                Gehege g = gehegeListe.get(row);
+                openEditDialog(g, parent, model);
+            });
+        }
+
+        @Override
+        public Component getTableCellEditorComponent(JTable table, Object value,
+                                                    boolean isSelected, int row, int column) {
+            this.row = row;
+            return button;
+        }
+
+        @Override
+        public Object getCellEditorValue() {
+            return "Bearbeiten";
+        }
+    }
+
 
 }
 

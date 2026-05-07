@@ -51,6 +51,7 @@ public abstract class Tier {
 
     public void setIstKrank(boolean istKrank) {
         this.istKrank = istKrank;
+        
     }
 
     public boolean getIstKrank() {

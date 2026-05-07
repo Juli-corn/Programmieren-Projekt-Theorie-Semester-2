@@ -23,6 +23,7 @@ public abstract class Gehege{
     private String fuetterungszeit;
     private String typ;
     private Tier[] tier = new Tier[maxTiere];
+    private int[] verbrauch = new int[2];
 
     public Gehege(int maxTiere, String fuetterungszeit, String typ) {
         
@@ -42,6 +43,7 @@ public abstract class Gehege{
 
                 this.tier[anzahlUntergebrachteTiere] = tier;
                 anzahlUntergebrachteTiere++;
+                futterverbrauch();
                 return tier.getClass().getSimpleName() + " " + tier.getName() + " wurde erfolgreich hinzugefügt.";
 
             } else {
@@ -61,6 +63,7 @@ public abstract class Gehege{
             if (this.tier[i] == tier) {
                 this.tier[i] = null;
                 anzahlUntergebrachteTiere--;
+                futterverbrauch();
                 return tier.getClass().getSimpleName() + " " + tier.getName() + " wurde erfolgreich entfernt.";
             }
         }
@@ -73,6 +76,10 @@ public abstract class Gehege{
 
     public int getMaxTiere() {
         return maxTiere;
+    }
+
+    public void setMaxTiere(int newMax) {
+        this.maxTiere = newMax;
     }
 
     public int getAnzahlUntergebrachteTiere() {
@@ -93,16 +100,19 @@ public abstract class Gehege{
         return fuetterungszeit;
     }
 
+    public void setFuetterungszeit(String newF) {
+        this.fuetterungszeit = newF;
+    }
+
     public String getTyp() {
         return typ;
     }
 
-    public int[] futterverbrauch() {
+    public void futterverbrauch() {
 
         int fischfutterverbrauch = 0;
         int fleischfutterverbrauch = 0;
         int pflanzenfutterverbrauch = 0;
-        int[] verbrauch = new int[2];
 
         for (int i = 0; i < tier.length; i++) {
 
@@ -121,10 +131,10 @@ public abstract class Gehege{
         verbrauch[1] = fleischfutterverbrauch;
         verbrauch[2] = pflanzenfutterverbrauch;
         
+    }
+
+    public int[] getFutterverbrauch() {
         return verbrauch;
     }
 
-    public void fuettern() {
-        System.out.println("Pfleger zum füttern in ");  // Hier auch Pfleger vermerken? -> oder generell Füttern via Pfleger auslöden???
-    }
 }
