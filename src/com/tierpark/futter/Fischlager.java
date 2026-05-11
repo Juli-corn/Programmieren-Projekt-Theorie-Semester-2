@@ -2,8 +2,8 @@ package futter;
 
 public class Fischlager extends Futterlager {
 
-    public Fischlager(int id, String name, String futterart, int maxFutter ) {
-        super(id, name, futterart, maxFutter);
+    public Fischlager(int id, String name, int maxFutter ) {
+        super(id, name, maxFutter, "Fisch");
     }
     
 }

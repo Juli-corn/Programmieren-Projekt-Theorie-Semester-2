@@ -23,6 +23,7 @@ public abstract class Gehege{
     private String fuetterungszeit;
     private String typ;
     private Tier[] tier = new Tier[maxTiere];
+    private int[] verbrauch = new int[2];
 
     public Gehege(int maxTiere, String fuetterungszeit, String typ) {
         
@@ -42,6 +43,7 @@ public abstract class Gehege{
 
                 this.tier[anzahlUntergebrachteTiere] = tier;
                 anzahlUntergebrachteTiere++;
+                futterverbrauch();
                 return tier.getClass().getSimpleName() + " " + tier.getName() + " wurde erfolgreich hinzugefügt.";
 
             } else {
@@ -61,6 +63,7 @@ public abstract class Gehege{
             if (this.tier[i] == tier) {
                 this.tier[i] = null;
                 anzahlUntergebrachteTiere--;
+                futterverbrauch();
                 return tier.getClass().getSimpleName() + " " + tier.getName() + " wurde erfolgreich entfernt.";
             }
         }
@@ -73,6 +76,10 @@ public abstract class Gehege{
 
     public int getMaxTiere() {
         return maxTiere;
+    }
+
+    public void setMaxTiere(int newMax) {
+        this.maxTiere = newMax;
     }
 
     public int getAnzahlUntergebrachteTiere() {
@@ -89,6 +96,20 @@ public abstract class Gehege{
         return tierNamen;
     }
 
+    public String getTierNamen() {
+        String tierNamen = "";
+        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
+            if (this.tier[i] != null) {
+                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
+            }
+        }
+        return tierNamen;
+    }
+
+    public void setFuetterungszeit(String newF) {
+        this.fuetterungszeit = newF;
+    }
+  
     public String getFuetterungszeit() {
         return fuetterungszeit;
     }
@@ -97,12 +118,11 @@ public abstract class Gehege{
         return typ;
     }
 
-    public int[] futterverbrauch() {
+    public void futterverbrauch() {
 
         int fischfutterverbrauch = 0;
         int fleischfutterverbrauch = 0;
         int pflanzenfutterverbrauch = 0;
-        int[] verbrauch = new int[2];
 
         for (int i = 0; i < tier.length; i++) {
 
@@ -115,13 +135,16 @@ public abstract class Gehege{
             } else if (tier[i].getLieblingsfutter().equals("Pflanzenfutter")) {
                 pflanzenfutterverbrauch = pflanzenfutterverbrauch + tier[i].getFuttermenge();
             }
-
         }
 
         verbrauch[0] = fischfutterverbrauch;
         verbrauch[1] = fleischfutterverbrauch;
         verbrauch[2] = pflanzenfutterverbrauch;
         
+    }
+
+    public int[] getFutterverbrauch() {
         return verbrauch;
     }
+
 }
