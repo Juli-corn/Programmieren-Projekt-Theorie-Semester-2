@@ -23,7 +23,8 @@ public abstract class Gehege{
     private String fuetterungszeit;
     private String typ;
     private Tier[] tier = new Tier[maxTiere];
-    private int[] verbrauch = new int[2];
+    private int[] verbrauch = new int[3];
+    private boolean heuteGefüttert;
 
     public Gehege(int maxTiere, String fuetterungszeit, String typ) {
         
@@ -33,6 +34,7 @@ public abstract class Gehege{
         this.anzahlUntergebrachteTiere = 0;
         this.fuetterungszeit = fuetterungszeit;
         this.typ = typ;
+        heuteGefüttert = false;
     }
 
     public String tierHinzufuegen(Tier tier) {
@@ -62,6 +64,13 @@ public abstract class Gehege{
         for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
             if (this.tier[i] == tier) {
                 this.tier[i] = null;
+
+                for(int j = 0; j < anzahlUntergebrachteTiere - 1; j++) {
+                    if(this.tier[j] == null) {
+                        this.tier[j] = this.tier[j + 1];
+                        this.tier[j + 1] = null;
+                    }
+                }
                 anzahlUntergebrachteTiere--;
                 futterverbrauch();
                 return tier.getClass().getSimpleName() + " " + tier.getName() + " wurde erfolgreich entfernt.";
@@ -96,16 +105,6 @@ public abstract class Gehege{
         return tierNamen;
     }
 
-    public String getTierNamen() {
-        String tierNamen = "";
-        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
-            if (this.tier[i] != null) {
-                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
-            }
-        }
-        return tierNamen;
-    }
-
     public void setFuetterungszeit(String newF) {
         this.fuetterungszeit = newF;
     }
@@ -126,13 +125,13 @@ public abstract class Gehege{
 
         for (int i = 0; i < tier.length; i++) {
 
-            if (tier[i].getLieblingsfutter().equals("Fischfutter")) {
+            if (tier[i].getLieblingsfutter().equals("Fisch")) {
                 fischfutterverbrauch = fischfutterverbrauch + tier[i].getFuttermenge();
 
-            } else if (tier[i].getLieblingsfutter().equals("Fleischfutter")) {
+            } else if (tier[i].getLieblingsfutter().equals("Fleisch")) {
                 fleischfutterverbrauch = fleischfutterverbrauch + tier[i].getFuttermenge();
 
-            } else if (tier[i].getLieblingsfutter().equals("Pflanzenfutter")) {
+            } else if (tier[i].getLieblingsfutter().equals("Pflanzen")) {
                 pflanzenfutterverbrauch = pflanzenfutterverbrauch + tier[i].getFuttermenge();
             }
         }
@@ -140,11 +139,24 @@ public abstract class Gehege{
         verbrauch[0] = fischfutterverbrauch;
         verbrauch[1] = fleischfutterverbrauch;
         verbrauch[2] = pflanzenfutterverbrauch;
-        
+
+    
     }
 
     public int[] getFutterverbrauch() {
         return verbrauch;
+    }
+
+    public Tier[] getTiere() {
+        return tier;
+    }
+
+    public boolean getHeuteGefüttert() {
+        return heuteGefüttert;
+    }
+
+    public void setHeuteGefüttert(boolean heuteGefüttert) {
+        this.heuteGefüttert = heuteGefüttert;
     }
 
 }
