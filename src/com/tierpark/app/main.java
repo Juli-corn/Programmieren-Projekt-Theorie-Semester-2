@@ -2,6 +2,7 @@ package app;
 
 import javax.swing.SwingUtilities;
 
+import GUI.main.TierparkGUI;
 import futter.*;
 import personal.*;
 import gehege.*;

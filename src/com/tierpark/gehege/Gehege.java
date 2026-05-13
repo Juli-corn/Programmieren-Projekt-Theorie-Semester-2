@@ -34,6 +34,7 @@ public abstract class Gehege{
         this.anzahlUntergebrachteTiere = 0;
         this.fuetterungszeit = fuetterungszeit;
         this.typ = typ;
+        this.tier = new Tier[maxTiere];
         heuteGefüttert = false;
     }
 
@@ -105,6 +106,20 @@ public abstract class Gehege{
         return tierNamen;
     }
 
+    public int getAnzahlUntergebrachteTiere() {
+        return anzahlUntergebrachteTiere;
+    }
+
+    public String getTierNamen() {
+        String tierNamen = "";
+        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
+            if (this.tier[i] != null) {
+                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
+            }
+        }
+        return tierNamen;
+    }
+
     public String getTierNamen() {
         String tierNamen = "";
         for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
@@ -135,13 +150,15 @@ public abstract class Gehege{
 
         for (int i = 0; i < tier.length; i++) {
 
-            if (tier[i].getLieblingsfutter().equals("Fisch")) {
+            if (tier[i] == null) continue;
+
+            if (tier[i].getLieblingsfutter().equals("Fischfutter")) {
                 fischfutterverbrauch = fischfutterverbrauch + tier[i].getFuttermenge();
 
-            } else if (tier[i].getLieblingsfutter().equals("Fleisch")) {
+            } else if (tier[i].getLieblingsfutter().equals("Fleischfutter")) {
                 fleischfutterverbrauch = fleischfutterverbrauch + tier[i].getFuttermenge();
 
-            } else if (tier[i].getLieblingsfutter().equals("Pflanzen")) {
+            } else if (tier[i].getLieblingsfutter().equals("Pflanzenfutter")) {
                 pflanzenfutterverbrauch = pflanzenfutterverbrauch + tier[i].getFuttermenge();
             }
         }
