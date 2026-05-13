@@ -71,4 +71,9 @@ public abstract class Tier {
         return gehegetyp;
     }
 
+
+    public String getGehegeTyp(){
+        return gehegetyp;
+    }
+
 }

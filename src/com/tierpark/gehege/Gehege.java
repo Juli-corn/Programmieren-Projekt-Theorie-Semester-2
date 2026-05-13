@@ -105,6 +105,16 @@ public abstract class Gehege{
         return tierNamen;
     }
 
+    public String getTierNamen() {
+        String tierNamen = "";
+        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
+            if (this.tier[i] != null) {
+                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
+            }
+        }
+        return tierNamen;
+    }
+
     public void setFuetterungszeit(String newF) {
         this.fuetterungszeit = newF;
     }
@@ -139,8 +149,7 @@ public abstract class Gehege{
         verbrauch[0] = fischfutterverbrauch;
         verbrauch[1] = fleischfutterverbrauch;
         verbrauch[2] = pflanzenfutterverbrauch;
-
-    
+        
     }
 
     public int[] getFutterverbrauch() {
