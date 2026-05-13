@@ -12,7 +12,7 @@ import java.util.Date;
 
 public class TierparkGUI extends JFrame {
 
-    private final TierparkController controller;
+    private TierparkController controller;
     private final JLabel timeLabel;
     private final JLabel animalsLabel;
     private final JLabel staffLabel;
@@ -54,6 +54,11 @@ public class TierparkGUI extends JFrame {
 
         Timer timer = new Timer(1000, e -> updateLabels());
         timer.start();
+        updateLabels();
+    }
+
+    public void setController(TierparkController controller) {
+        this.controller = controller;
         updateLabels();
     }
 

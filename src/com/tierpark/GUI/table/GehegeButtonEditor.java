@@ -1,7 +1,7 @@
 package GUI.table;
 
 import GUI.controller.TierparkController;
-import GUI.dialogs.AddTierDialog;
+import GUI.dialogs.GehegeAnimalsDialog;
 import GUI.panels.GehegePanel;
 import gehege.Gehege;
 
@@ -25,7 +25,8 @@ public class GehegeButtonEditor extends DefaultCellEditor {
         button.addActionListener(e -> {
             fireEditingStopped();
             Gehege g = controller.getGehegeListe().get(row);
-            new AddTierDialog(parent, controller, g, panel);
+            new GehegeAnimalsDialog(parent, controller, g, panel);
+            panel.refresh();
         });
     }
 

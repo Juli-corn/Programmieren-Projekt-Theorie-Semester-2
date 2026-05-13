@@ -106,30 +106,6 @@ public abstract class Gehege{
         return tierNamen;
     }
 
-    public int getAnzahlUntergebrachteTiere() {
-        return anzahlUntergebrachteTiere;
-    }
-
-    public String getTierNamen() {
-        String tierNamen = "";
-        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
-            if (this.tier[i] != null) {
-                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
-            }
-        }
-        return tierNamen;
-    }
-
-    public String getTierNamen() {
-        String tierNamen = "";
-        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
-            if (this.tier[i] != null) {
-                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
-            }
-        }
-        return tierNamen;
-    }
-
     public void setFuetterungszeit(String newF) {
         this.fuetterungszeit = newF;
     }
