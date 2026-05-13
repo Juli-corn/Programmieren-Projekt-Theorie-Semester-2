@@ -22,8 +22,8 @@ public abstract class Gehege{
     private int anzahlUntergebrachteTiere;
     private String fuetterungszeit;
     private String typ;
-    private Tier[] tier = new Tier[maxTiere];
-    private int[] verbrauch = new int[2];
+    private Tier[] tier;
+    private int[] verbrauch = new int[3];
 
     public Gehege(int maxTiere, String fuetterungszeit, String typ) {
         
@@ -33,6 +33,7 @@ public abstract class Gehege{
         this.anzahlUntergebrachteTiere = 0;
         this.fuetterungszeit = fuetterungszeit;
         this.typ = typ;
+        this.tier = new Tier[maxTiere];
     }
 
     public String tierHinzufuegen(Tier tier) {
@@ -115,6 +116,8 @@ public abstract class Gehege{
         int pflanzenfutterverbrauch = 0;
 
         for (int i = 0; i < tier.length; i++) {
+
+            if (tier[i] == null) continue;
 
             if (tier[i].getLieblingsfutter().equals("Fischfutter")) {
                 fischfutterverbrauch = fischfutterverbrauch + tier[i].getFuttermenge();

@@ -4,8 +4,8 @@ import tier.Tier;
 
 public class Erdmännchen extends Tier {
 
-    public Erdmännchen(int id, String name, int alter, int futtermenge ) {
-        super(id, name, alter, "Erdmännchen", "Fleisch", futtermenge, "Savanne" );
+    public Erdmännchen(String name, int alter, int futtermenge ) {
+        super(name, alter, "Erdmännchen", "Fleisch", futtermenge, "Savanne" );
     }
     
 }

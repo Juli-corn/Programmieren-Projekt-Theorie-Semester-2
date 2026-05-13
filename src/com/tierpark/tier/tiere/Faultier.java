@@ -4,8 +4,8 @@ import tier.Tier;
 
 public class Faultier extends Tier {
 
-    public Faultier(int id, String name, int alter, int futtermenge ) {
-        super(id, name, alter, "Faultier", "Pflanzen", futtermenge, "Dschungel" );
+    public Faultier(String name, int alter, int futtermenge ) {
+        super(name, alter, "Faultier", "Pflanzen", futtermenge, "Dschungel" );
     }
     
 }

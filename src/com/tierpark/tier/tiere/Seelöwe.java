@@ -4,8 +4,8 @@ import tier.Tier;
 
 public class Seelöwe extends Tier {
 
-    public Seelöwe(int id, String name, int alter, int futtermenge ) {
-        super(id, name, alter, "Seelöwe", "Fisch", futtermenge, "Eisgehege" );
+    public Seelöwe(String name, int alter, int futtermenge ) {
+        super(name, alter, "Seelöwe", "Fisch", futtermenge, "Eisgehege" );
     }
     
 }

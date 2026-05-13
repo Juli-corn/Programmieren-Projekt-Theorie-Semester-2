@@ -1,4 +1,6 @@
 package tier;
+
+import app.main;
 /* -> abstract
     Attribute:
         - int id
@@ -19,10 +21,12 @@ public abstract class Tier {
     protected String lieblingsfutter;
     protected int futtermenge;     // Verbrauch kg/Tag
     protected String gehegetyp;
+    protected boolean inGehege;
     
 
-    public Tier(int id, String name, int alter, String art, String lieblingsfutter, int futtermenge, String gehegetyp) {
-        this.tId = id;
+    public Tier(String name, int alter, String art, String lieblingsfutter, int futtermenge, String gehegetyp) {
+        main.id++;
+        this.tId = main.id;
         this.name = name;
         this.alter = alter;
         this.art = art;
@@ -30,6 +34,7 @@ public abstract class Tier {
         this.istKrank = false;
         this.futtermenge = futtermenge;
         this.gehegetyp = gehegetyp;
+        this.inGehege = false;
     }
 
 
@@ -69,6 +74,14 @@ public abstract class Tier {
 
     public String getGehegeTyp(){
         return gehegetyp;
+    }
+
+    public boolean getInGehege(){
+        return inGehege;
+    }
+
+    public void setInGehege(boolean inGehege) {
+        this.inGehege = inGehege;
     }
 
 };
