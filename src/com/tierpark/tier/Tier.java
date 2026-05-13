@@ -84,4 +84,4 @@ public abstract class Tier {
         this.inGehege = inGehege;
     }
 
-};
+}

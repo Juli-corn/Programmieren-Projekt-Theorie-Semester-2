@@ -22,8 +22,9 @@ public abstract class Gehege{
     private int anzahlUntergebrachteTiere;
     private String fuetterungszeit;
     private String typ;
-    private Tier[] tier;
+    private Tier[] tier = new Tier[maxTiere];
     private int[] verbrauch = new int[3];
+    private boolean heuteGefüttert;
 
     public Gehege(int maxTiere, String fuetterungszeit, String typ) {
         
@@ -34,6 +35,7 @@ public abstract class Gehege{
         this.fuetterungszeit = fuetterungszeit;
         this.typ = typ;
         this.tier = new Tier[maxTiere];
+        heuteGefüttert = false;
     }
 
     public String tierHinzufuegen(Tier tier) {
@@ -63,6 +65,13 @@ public abstract class Gehege{
         for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
             if (this.tier[i] == tier) {
                 this.tier[i] = null;
+
+                for(int j = 0; j < anzahlUntergebrachteTiere - 1; j++) {
+                    if(this.tier[j] == null) {
+                        this.tier[j] = this.tier[j + 1];
+                        this.tier[j + 1] = null;
+                    }
+                }
                 anzahlUntergebrachteTiere--;
                 futterverbrauch();
                 return tier.getClass().getSimpleName() + " " + tier.getName() + " wurde erfolgreich entfernt.";
@@ -97,12 +106,36 @@ public abstract class Gehege{
         return tierNamen;
     }
 
-    public String getFuetterungszeit() {
-        return fuetterungszeit;
+    public int getAnzahlUntergebrachteTiere() {
+        return anzahlUntergebrachteTiere;
+    }
+
+    public String getTierNamen() {
+        String tierNamen = "";
+        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
+            if (this.tier[i] != null) {
+                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
+            }
+        }
+        return tierNamen;
+    }
+
+    public String getTierNamen() {
+        String tierNamen = "";
+        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
+            if (this.tier[i] != null) {
+                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
+            }
+        }
+        return tierNamen;
     }
 
     public void setFuetterungszeit(String newF) {
         this.fuetterungszeit = newF;
+    }
+  
+    public String getFuetterungszeit() {
+        return fuetterungszeit;
     }
 
     public String getTyp() {
@@ -138,6 +171,18 @@ public abstract class Gehege{
 
     public int[] getFutterverbrauch() {
         return verbrauch;
+    }
+
+    public Tier[] getTiere() {
+        return tier;
+    }
+
+    public boolean getHeuteGefüttert() {
+        return heuteGefüttert;
+    }
+
+    public void setHeuteGefüttert(boolean heuteGefüttert) {
+        this.heuteGefüttert = heuteGefüttert;
     }
 
 }
