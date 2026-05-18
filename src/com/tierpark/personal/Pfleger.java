@@ -7,10 +7,21 @@ public class Pfleger extends Personal {
     private int gehegeproschicht = 2;
     private int gefütterteGehege = 0;
 
+    /**
+     * Erstellt einen neuen Pfleger.
+     *
+     * @param Name Name des Pflegers
+     */
     public Pfleger(String Name) {
         super(Name, "Pfleger");
     }
 
+    /**
+     * Füttert die Tiere eines Geheges.
+     *
+     * @param gehege betroffenes Gehege
+     * @return Statusmeldung der Fütterung
+     */
     public String füttern(Gehege gehege) {
 
         if(gehegeproschicht == gefütterteGehege) {

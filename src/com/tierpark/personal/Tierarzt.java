@@ -9,6 +9,12 @@ public class Tierarzt extends Personal {
         super(Name, "Tierarzt");
     }
 
+    /**
+     * Behandelt ein krankes Tier.
+     *
+     * @param tier zu behandelndes Tier
+     * @return Ergebnis der Behandlung
+     */
     public String heileTier(Tier tier) {
 
         if(tier.getIstKrank() == true) {
