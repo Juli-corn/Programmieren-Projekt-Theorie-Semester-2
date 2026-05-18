@@ -1,5 +1,10 @@
 package GUI.dialogs;
 
+/*
+ * Dialog zur Erstellung eines neuen Tieres.
+ * Ermöglicht die Eingabe eines Namens, Alters, der Tierart und des täglichen Futterbedarfs.
+ */
+
 import GUI.controller.TierparkController;
 import GUI.panels.TierePanel;
 import tier.Tier;
@@ -123,6 +128,7 @@ public class CreateTierDialog extends JDialog {
         add(btn);
 
         setLocationRelativeTo(parent);
+        setLocation(parent.getX() + 40, parent.getY() + 40);
         setVisible(true);
     }
 }

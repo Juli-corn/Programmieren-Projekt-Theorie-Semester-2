@@ -1,19 +1,18 @@
 package GUI.table;
 
 /*
- * Editor für den Öffnen-Button der Gehege-Tabelle.
- * Öffnet das Dialogfenster mit den Tieren des ausgewählten Geheges.
+ * Editor für die Füttern-Schaltfläche in der Gehege-Tabelle.
+ * Löst Fütterungsaktionen aus und zeigt Ergebnisdialoge an.
  */
 
 import GUI.controller.TierparkController;
-import GUI.dialogs.GehegeAnimalsDialog;
 import GUI.panels.GehegePanel;
 import gehege.Gehege;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class GehegeButtonEditor extends DefaultCellEditor {
+public class FeedButtonEditor extends DefaultCellEditor {
 
     private final JButton button;
     private final TierparkController controller;
@@ -21,16 +20,17 @@ public class GehegeButtonEditor extends DefaultCellEditor {
     private final JFrame parent;
     private int row;
 
-    public GehegeButtonEditor(JCheckBox box, TierparkController controller, GehegePanel panel, JFrame parent) {
+    public FeedButtonEditor(JCheckBox box, TierparkController controller, GehegePanel panel, JFrame parent) {
         super(box);
         this.controller = controller;
         this.panel = panel;
         this.parent = parent;
-        button = new JButton("Öffnen");
+        button = new JButton("Füttern");
         button.addActionListener(e -> {
             fireEditingStopped();
             Gehege g = controller.getGehegeListe().get(row);
-            new GehegeAnimalsDialog(parent, controller, g, panel);
+            String result = controller.fuetternGehege(g);
+            JOptionPane.showMessageDialog(parent, result);
             panel.refresh();
         });
     }
@@ -43,6 +43,6 @@ public class GehegeButtonEditor extends DefaultCellEditor {
 
     @Override
     public Object getCellEditorValue() {
-        return "Öffnen";
+        return "Füttern";
     }
 }

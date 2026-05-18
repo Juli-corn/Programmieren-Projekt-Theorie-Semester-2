@@ -4,22 +4,14 @@ import javax.swing.SwingUtilities;
 
 import GUI.main.TierparkGUI;
 import GUI.controller.TierparkController;
-import futter.*;
 import personal.*;
 import gehege.*;
 import tier.*;
 import tier.tiere.*;
 
-
 public class main{
 
     public static int id = 0;
-
-    private static Pfleger[] pfleger = new Pfleger[10];
-    private static Tierarzt[] tierarzt = new Tierarzt[10];
-    public static Fischlager fischlager = new Fischlager(1, "Fischlager", 1000);
-    public static Fleischlager fleischlager = new Fleischlager(2, "Fleischlager", 1000);
-    public static Pflanzenlager pflanzenlager = new Pflanzenlager(3, "Pflanzenlager", 1000);
 
     public static void main(String[] args){
         
@@ -69,6 +61,12 @@ public class main{
         controller.assignTierToGehege(dschungel, monkey);
         controller.assignTierToGehege(dschungel, snake);
         controller.assignTierToGehege(dschungel, bird);
+
+        // Create staff with Schichten und Kapazitäten
+        controller.addPersonal(new Pfleger("Max Mustermann", "08:00-16:00", 3));
+        controller.addPersonal(new Pfleger("Lena Becker", "09:00-17:00", 2));
+        controller.addPersonal(new Tierarzt("Anna Schmidt", "10:00-18:00", 2));
+        controller.addPersonal(new Tierarzt("Tom Meyer", "12:00-20:00", 3));
     }
 }
 /*

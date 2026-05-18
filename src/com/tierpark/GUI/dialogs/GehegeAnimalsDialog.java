@@ -1,5 +1,10 @@
 package GUI.dialogs;
 
+/*
+ * Dialog zur Anzeige der Tiere eines einzelnen Geheges.
+ * Ermöglicht Hinzufügen und Entfernen von Tieren für das ausgewählte Gehege.
+ */
+
 import GUI.controller.TierparkController;
 import GUI.panels.GehegePanel;
 import gehege.Gehege;
@@ -43,12 +48,31 @@ public class GehegeAnimalsDialog extends JDialog {
             new AddTierDialog(parentFrame, controller, gehege, parentPanel);
             refresh();
         });
+        JButton removeBtn = new JButton("Tier entfernen");
+        removeBtn.addActionListener(e -> {
+            int sel = table.getSelectedRow();
+            if (sel < 0) {
+                JOptionPane.showMessageDialog(this, "Bitte zuerst ein Tier auswählen.");
+                return;
+            }
+            List<Tier> animals = getAnimalsInGehege();
+            Tier toRemove = animals.get(sel);
+            int confirm = JOptionPane.showConfirmDialog(this, "Soll " + toRemove.getName() + " aus dem Gehege entfernt werden?", "Bestätigen", JOptionPane.YES_NO_OPTION);
+            if (confirm == JOptionPane.YES_OPTION) {
+                String result = controller.removeTierFromGehege(toRemove);
+                JOptionPane.showMessageDialog(this, result);
+                refresh();
+                parentPanel.refresh();
+            }
+        });
 
         buttonPanel.add(addBtn);
+        buttonPanel.add(removeBtn);
         add(buttonPanel, BorderLayout.SOUTH);
 
         refresh();
         setLocationRelativeTo(parent);
+        setLocation(parent.getX() + 40, parent.getY() + 40);
         setVisible(true);
     }
 
@@ -68,7 +92,7 @@ public class GehegeAnimalsDialog extends JDialog {
     private List<Tier> getAnimalsInGehege() {
         List<Tier> result = new ArrayList<>();
         for (Tier t : controller.getTierListe()) {
-            if (t.getInGehege() && t.getGehegeTyp().equals(gehege.getTyp())) {
+            if (t.getInGehege() && t.getGehegeId() == gehege.getId()) {
                 result.add(t);
             }
         }

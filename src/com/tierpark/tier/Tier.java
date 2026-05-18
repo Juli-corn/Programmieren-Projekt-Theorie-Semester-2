@@ -22,8 +22,8 @@ public abstract class Tier {
     protected int futtermenge;     // Verbrauch kg/Tag
     protected String gehegetyp;
     protected boolean inGehege;
+    protected int gehegeId;
     
-
     public Tier(String name, int alter, String art, String lieblingsfutter, int futtermenge, String gehegetyp) {
         main.id++;
         this.tId = main.id;
@@ -35,8 +35,8 @@ public abstract class Tier {
         this.futtermenge = futtermenge;
         this.gehegetyp = gehegetyp;
         this.inGehege = false;
+        this.gehegeId = -1;
     }
-
 
     public int getId() {
         return tId;
@@ -82,6 +82,14 @@ public abstract class Tier {
 
     public void setInGehege(boolean inGehege) {
         this.inGehege = inGehege;
+    }
+
+    public int getGehegeId() {
+        return gehegeId;
+    }
+
+    public void setGehegeId(int gehegeId) {
+        this.gehegeId = gehegeId;
     }
 
 }

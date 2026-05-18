@@ -128,14 +128,13 @@ public abstract class Gehege{
 
             if (tier[i] == null) continue;
 
-            if (tier[i].getLieblingsfutter().equals("Fischfutter")) {
-                fischfutterverbrauch = fischfutterverbrauch + tier[i].getFuttermenge();
-
-            } else if (tier[i].getLieblingsfutter().equals("Fleischfutter")) {
-                fleischfutterverbrauch = fleischfutterverbrauch + tier[i].getFuttermenge();
-
-            } else if (tier[i].getLieblingsfutter().equals("Pflanzenfutter")) {
-                pflanzenfutterverbrauch = pflanzenfutterverbrauch + tier[i].getFuttermenge();
+            String futter = tier[i].getLieblingsfutter();
+            if ("Fischfutter".equalsIgnoreCase(futter) || "Fisch".equalsIgnoreCase(futter)) {
+                fischfutterverbrauch += tier[i].getFuttermenge();
+            } else if ("Fleischfutter".equalsIgnoreCase(futter) || "Fleisch".equalsIgnoreCase(futter)) {
+                fleischfutterverbrauch += tier[i].getFuttermenge();
+            } else if ("Pflanzenfutter".equalsIgnoreCase(futter) || "Pflanzen".equalsIgnoreCase(futter)) {
+                pflanzenfutterverbrauch += tier[i].getFuttermenge();
             }
         }
 

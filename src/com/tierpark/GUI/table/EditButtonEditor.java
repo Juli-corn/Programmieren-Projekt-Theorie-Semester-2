@@ -1,5 +1,10 @@
 package GUI.table;
 
+/*
+ * Editor für die Bearbeiten-Schaltfläche in der Gehege-Tabelle.
+ * Öffnet einen Dialog zur Anpassung eines Geheges.
+ */
+
 import GUI.controller.TierparkController;
 import GUI.dialogs.EditGehegeDialog;
 import GUI.panels.GehegePanel;

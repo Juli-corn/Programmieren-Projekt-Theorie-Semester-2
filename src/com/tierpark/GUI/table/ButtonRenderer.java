@@ -1,5 +1,10 @@
 package GUI.table;
 
+/*
+ * Renderer für Button-Zellen in Tabellen.
+ * Zeigt den Zelleninhalt als klickbaren Button an.
+ */
+
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;
 import java.awt.*;

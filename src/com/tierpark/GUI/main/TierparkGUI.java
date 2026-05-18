@@ -1,6 +1,13 @@
 package GUI.main;
 
+/*
+ * Hauptfenster der Tierpark-Anwendung.
+ * Hier startet die GUI, zeigt Übersichtsinformationen an
+ * und öffnet die Unterfenster für Gehege, Personal, Tiere und Futterlager.
+ */
+
 import GUI.controller.TierparkController;
+import GUI.panels.FutterlagerPanel;
 import GUI.panels.GehegePanel;
 import GUI.panels.PflegerPanel;
 import GUI.panels.TierePanel;
@@ -16,7 +23,9 @@ public class TierparkGUI extends JFrame {
     private final JLabel timeLabel;
     private final JLabel animalsLabel;
     private final JLabel staffLabel;
+    private boolean shownUnassignedWarning = false;
 
+    // Hauptfenster der Anwendung. Stellt die Übersicht und Navigationsschaltflächen bereit.
     public TierparkGUI() {
         this.controller = new TierparkController();
 
@@ -29,7 +38,7 @@ public class TierparkGUI extends JFrame {
         JPanel infoPanel = new JPanel(new GridLayout(3, 1));
         timeLabel = new JLabel();
         animalsLabel = new JLabel();
-        staffLabel = new JLabel("Pfleger/Ärzte: 10");
+        staffLabel = new JLabel();
 
         infoPanel.add(timeLabel);
         infoPanel.add(animalsLabel);
@@ -41,14 +50,16 @@ public class TierparkGUI extends JFrame {
         JButton gehegeBtn = new JButton("Gehege");
         JButton pflegerBtn = new JButton("Pfleger");
         JButton tierBtn = new JButton("Tiere");
+        JButton futterlagerBtn = new JButton("Futterlager");
 
         gehegeBtn.addActionListener(e -> new GehegePanel(this, controller));
-        pflegerBtn.addActionListener(e -> new PflegerPanel(this));
+        pflegerBtn.addActionListener(e -> new PflegerPanel(this, controller));
         tierBtn.addActionListener(e -> new TierePanel(this, controller));
-
+        futterlagerBtn.addActionListener(e -> new FutterlagerPanel(this, controller));
         buttonPanel.add(gehegeBtn);
         buttonPanel.add(pflegerBtn);
         buttonPanel.add(tierBtn);
+        buttonPanel.add(futterlagerBtn);
 
         add(buttonPanel, BorderLayout.CENTER);
 
@@ -62,9 +73,23 @@ public class TierparkGUI extends JFrame {
         updateLabels();
     }
 
+    // Aktualisiert die Anzeige im Hauptfenster und verarbeitet dabei auch kranke Tiere.
     private void updateLabels() {
+        if (controller != null) {
+            String healedMessage = controller.processPendingKrank();
+            if (!healedMessage.isBlank()) {
+                JOptionPane.showMessageDialog(this, healedMessage, "Kranke Tiere geheilt", JOptionPane.INFORMATION_MESSAGE);
+            }
+        }
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         timeLabel.setText("Uhrzeit: " + sdf.format(new Date()));
         animalsLabel.setText("Anzahl Tiere: " + controller.getTierListe().size());
+        staffLabel.setText("Pfleger/Ärzte: " + controller.getPersonalListe().size() + " (verfügbar: " + controller.getAvailablePersonalCount() + ")");
+        // Warnung, falls Tiere ohne Gehege existieren (einmalig)
+        long unassigned = controller.getTierListe().stream().filter(t -> !t.getInGehege()).count();
+        if (unassigned > 0 && !shownUnassignedWarning) {
+            shownUnassignedWarning = true;
+            JOptionPane.showMessageDialog(this, "Es gibt " + unassigned + " Tiere ohne zugewiesenes Gehege.");
+        }
     }
 }
