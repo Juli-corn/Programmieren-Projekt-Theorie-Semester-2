@@ -18,6 +18,14 @@ public abstract class Futterlager {
     protected int maxFutter;        // Kg
     protected int minFutter;        // Kg | Wert, nach dessen Unterschreitung nachbestellt wird. (evtl. durch Funktion bestimmen -> ges. Summe Futterart pro Tag als min Wert)
 
+    /**
+     * Erstellt ein neues Futterlager.
+     *
+     * @param id id des Lagers
+     * @param name Name des Lagers
+     * @param maxFutter maximales Futter des Lagers
+     * @param futterart Art des Futters
+     */
     public Futterlager(int id,String name, int maxFutter, String futterart) {
         this.fId = id;
         this.name = name;
@@ -27,30 +35,62 @@ public abstract class Futterlager {
         this.futter = 0;
     }
 
+    /**
+     * Gibt die ID des Lagers zurück.
+     *
+     * @return fId
+     */
     public int getId() {
         return fId;
     }
 
+    /**
+     * Gibt die Futterart zurück.
+     *
+     * @return futterart
+     */
     public String getFutterart() {
         return futterart;
     }
 
+    /**
+     * Gibt die maximale Lagerkapazität zurück.
+     *
+     * @return maxFutter
+     */
     public int getMaxFutter() {
         return maxFutter;
     }
 
+    /**
+     * Gibt den Mindestbestand zurück.
+     *
+     * @return minFutter
+     */
     public int getMinFutter() {
         return minFutter;
     }
 
+    /**
+     * Setzt den Mindestbestand des Futters
+     */
     public void setMinFutter() {        // Hilfsvariable für ges Futtermenge je Futterart. In GUI aktivieren für neues setzen. 
 
     }
 
+    /**
+     * Gibt den aktuellen Futterbestand zurück.
+     *
+     * @return futter
+     */
     public int getFutter() {
         return futter;
     }
 
+    /**
+     * Führt eine automatische Nachbestellung aus,
+     * wenn der Bestand kleiner oder gleich dem Mindestbestand ist.
+     */
     public void bestellung() {
         if (futter <= minFutter){
             System.out.println("Es wurden " + (maxFutter - futter) + " Kg Futter nachbestellt." );
@@ -60,6 +100,12 @@ public abstract class Futterlager {
         
     }
 
+    /**
+     * Zieht die angegebene Futtermenge vom Lagerbestand ab.
+     *
+     * @param Kg
+     * @throws IllegalArgumentException Wenn nicht genügend Futter vorhanden ist
+     */
     public void ausgabe(int Kg) {     // zieht bei Fütterung das verbrauchte Material ab.
         try {
             if (Kg > futter) {
