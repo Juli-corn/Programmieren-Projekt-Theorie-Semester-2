@@ -36,7 +36,7 @@ public abstract class Personal {
     /**
      * Gibt den Namen des Mitarbeiters zurück.
      *
-     * @return Name des Mitarbeiters
+     * @return Name
      */
     public String getName() {
         return Name;
@@ -45,7 +45,7 @@ public abstract class Personal {
     /**
      * Gibt die Id des Mitarbeiters zurück.
      *
-     * @return id des Mitarbeiters
+     * @return id
      */
     public int getId() {
         return id;
@@ -54,7 +54,7 @@ public abstract class Personal {
     /**
      * Gibt den Job des Mitarbeiters zurück.
      *
-     * @return job des Mitarbeiters
+     * @return job
      */
     public String getJob() {
         return job;

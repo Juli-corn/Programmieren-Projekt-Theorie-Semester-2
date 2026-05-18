@@ -4,7 +4,11 @@ import tier.Tier;
 
 public class Tierarzt extends Personal {
 
-
+    /**
+     * Erstellt einen neuen Tierarzt.
+     *
+     * @param Name Name des Tierarztes.
+     */
     public Tierarzt(String Name) {
         super(Name, "Tierarzt");
     }

@@ -2,7 +2,13 @@ package gehege;
 
 public class Wassergehege extends Gehege {
 
-    public Wassergehege(int id, int maxTiere, String fuetterungszeit) {
+    /**
+     * Erstellt ein neues Wassergehege-Objekt.
+     *
+     * @param maxTiere maximale Tiere des Geheges
+     * @param fuetterungszeit Fuetterungszeit des Geheges
+     */
+    public Wassergehege(int maxTiere, String fuetterungszeit) {
         super(maxTiere, fuetterungszeit, "Wassergehege");
     }
     

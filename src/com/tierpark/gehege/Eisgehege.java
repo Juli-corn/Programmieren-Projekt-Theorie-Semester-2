@@ -2,7 +2,13 @@ package gehege;
 
 public class Eisgehege extends Gehege {
 
-    public Eisgehege(int id, int maxTiere, String fuetterungszeit) {
+    /**
+     * Erstellt ein neues Eisgehege-Objekt.
+     *
+     * @param maxTiere maximale Tiere des Geheges
+     * @param fuetterungszeit Fuetterungszeit des Geheges
+     */
+    public Eisgehege(int maxTiere, String fuetterungszeit) {
         super(maxTiere, fuetterungszeit, "Eisgehege");
     }
     

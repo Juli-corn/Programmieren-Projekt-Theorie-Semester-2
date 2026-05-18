@@ -29,8 +29,8 @@ public abstract class Gehege{
     /**
      * Erstellt ein neues Gehege.
      *
-     * @param maxTiere maximale Tieranzahl
-     * @param fuetterungszeit Zeitpunkt der Fütterung
+     * @param maxTiere maximale Tiere des Geheges
+     * @param fuetterungszeit Fuetterungszeit des Geheges
      * @param typ Gehegetyp
      */
     public Gehege(int maxTiere, String fuetterungszeit, String typ) {
@@ -48,7 +48,7 @@ public abstract class Gehege{
     /**
      * Fügt ein Tier zum Gehege hinzu.
      *
-     * @param tier hinzuzufügendes Tier
+     * @param tier hinzuzufuegendes Tier
      * @return Ergebnis der Aktion
      */
     public String tierHinzufuegen(Tier tier) {
@@ -102,7 +102,7 @@ public abstract class Gehege{
     /**
      * Gibt Id zurück.
      *
-     * @return id Wert
+     * @return id
      */
     public int getId() {
         return id;
@@ -111,16 +111,26 @@ public abstract class Gehege{
     /**
      * Gibt MaxTiere zurück.
      *
-     * @return maxTiere Wert
+     * @return maxTiere
      */
     public int getMaxTiere() {
         return maxTiere;
     }
 
+    /**
+     * Setzt die maximale Anzahl an Tieren.
+     *
+     * @param newMax die neue maximale Anzahl an Tieren
+     */
     public void setMaxTiere(int newMax) {
         this.maxTiere = newMax;
     }
 
+    /**
+     * Gibt die Anzahlt untergebrachter Tiere zurück.
+     *
+     * @return anzahlUntergebrachteTiere
+     */
     public int getAnzahlUntergebrachteTiere() {
         return anzahlUntergebrachteTiere;
     }
@@ -128,7 +138,7 @@ public abstract class Gehege{
     /**
      * Gibt TierNamen zurück.
      *
-     * @return tierNamen Wert
+     * @return tierNamen
      */
     public String getTierNamen() {
         String tierNamen = "";
@@ -143,7 +153,7 @@ public abstract class Gehege{
     /**
      * Gibt AnzahlUntergebrachterTiere zurück.
      *
-     * @return anzahlUntergebrachterTiere Wert
+     * @return anzahlUntergebrachterTiere
      */
     public int getAnzahlUntergebrachteTiere() {
         return anzahlUntergebrachteTiere;
@@ -152,7 +162,7 @@ public abstract class Gehege{
     /**
      * Gibt TierNamen zurück.
      *
-     * @return tierNamen Wert
+     * @return tierNamen
      */
     public String getTierNamen() {
         String tierNamen = "";
@@ -167,7 +177,7 @@ public abstract class Gehege{
     /**
      * Gibt TierNamen zurück.
      *
-     * @return tierNamen Wert
+     * @return tierNamen
      */
     public String getTierNamen() {
         String tierNamen = "";
@@ -179,6 +189,11 @@ public abstract class Gehege{
         return tierNamen;
     }
 
+    /**
+     * Setzt die Fuetterungszeite
+     *
+     * @param newF die neue fuetterungszeit
+     */
     public void setFuetterungszeit(String newF) {
         this.fuetterungszeit = newF;
     }
@@ -186,7 +201,7 @@ public abstract class Gehege{
     /**
      * Gibt Fuetterungszeit zurück.
      *
-     * @return futternungszeit Wert
+     * @return futternungszeit
      */
     public String getFuetterungszeit() {
         return fuetterungszeit;
@@ -195,12 +210,15 @@ public abstract class Gehege{
     /**
      * Gibt Typ zurück.
      *
-     * @return typ Wert
+     * @return typ
      */
     public String getTyp() {
         return typ;
     }
 
+    /**
+     * Setzt das Rechnungs-Arrys mit seinen drei Possitionen auf die verschiedenen Futterarten.
+     */
     public void futterverbrauch() {
 
         int fischfutterverbrauch = 0;
@@ -231,7 +249,7 @@ public abstract class Gehege{
     /**
      * Gibt Futterverbrauch zurück.
      *
-     * @return verbrauch Wert
+     * @return verbrauch
      */
     public int[] getFutterverbrauch() {
         return verbrauch;
@@ -240,7 +258,7 @@ public abstract class Gehege{
     /**
      * Gibt Tiere zurück.
      *
-     * @return tier Wert
+     * @return tier
      */
     public Tier[] getTiere() {
         return tier;
@@ -249,12 +267,17 @@ public abstract class Gehege{
     /**
      * Gibt Heute Gefüttert zurück.
      *
-     * @return heuteGefüttert Wert
+     * @return true falls heuteGefüttert, sonst false
      */
     public boolean getHeuteGefüttert() {
         return heuteGefüttert;
     }
 
+    /**
+     * Setzt heuteGefüttert auf true oder false
+     *
+     * @param heuteGefüttert
+     */
     public void setHeuteGefüttert(boolean heuteGefüttert) {
         this.heuteGefüttert = heuteGefüttert;
     }

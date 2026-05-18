@@ -2,7 +2,13 @@ package gehege;
 
 public class Waldgehege extends Gehege {
 
-    public Waldgehege(int id, int maxTiere, String fuetterungszeit) {
+    /**
+     * Erstellt ein neues Waldgehege-Objekt.
+     *
+     * @param maxTiere maximale Tiere des Geheges
+     * @param fuetterungszeit Fuetterungszeit des Geheges
+     */
+    public Waldgehege(int maxTiere, String fuetterungszeit) {
         super(maxTiere, fuetterungszeit, "Waldgehege");
     }
     

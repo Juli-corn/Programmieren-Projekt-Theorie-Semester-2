@@ -49,7 +49,7 @@ public abstract class Tier {
     /**
      * Gibt die ID des Tieres zurück.
      *
-     * @return eindeutige Tier-ID
+     * @return tId
      */
     public int getId() {
         return tId;
@@ -58,7 +58,7 @@ public abstract class Tier {
     /**
      * Gibt den Namen des Tieres zurück.
      *
-     * @return Name des Tieres
+     * @return name
      */
     public String getName() {
         return name;
@@ -67,12 +67,17 @@ public abstract class Tier {
     /**
      * Gibt das Alter des Tieres zurück.
      *
-     * @return Alter des Tieres
+     * @return alter
      */
     public int getAlter() {
         return alter;
     }
 
+    /**
+     * Gibt die Art des Tieres zurück.
+     *
+     * @return art
+     */
     public String getArt() {
         return art;
     }
@@ -105,19 +110,38 @@ public abstract class Tier {
         return lieblingsfutter;
     }
 
+    /**
+     * Gibt die Futtermenge zurück.
+     *
+     * @return futtermenge
+     */
     public int getFuttermenge() {
         return futtermenge;
     }
 
-
+    /**
+     * Gibt den GehegeTyp zurück
+     *
+     * @return gehegetyp
+     */
     public String getGehegeTyp(){
         return gehegetyp;
     }
 
+    /**
+     * Gibt zurück ob das Tier im Gehege ist.
+     *
+     * @return true falls inGehege, sonst false
+     */
     public boolean getInGehege(){
         return inGehege;
     }
 
+    /**
+     * Gibt zurück ob das Tier im Gehege ist.
+     *
+     * @return true falls inGehege, sonst false
+     */
     public void setInGehege(boolean inGehege) {
         this.inGehege = inGehege;
     }
