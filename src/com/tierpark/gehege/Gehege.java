@@ -26,6 +26,13 @@ public abstract class Gehege{
     private int[] verbrauch = new int[3];
     private boolean heuteGefüttert;
 
+    /**
+     * Erstellt ein neues Gehege.
+     *
+     * @param maxTiere maximale Tiere des Geheges
+     * @param fuetterungszeit Fuetterungszeit des Geheges
+     * @param typ Gehegetyp
+     */
     public Gehege(int maxTiere, String fuetterungszeit, String typ) {
         
         main.id++;
@@ -38,6 +45,12 @@ public abstract class Gehege{
         heuteGefüttert = false;
     }
 
+    /**
+     * Fügt ein Tier zum Gehege hinzu.
+     *
+     * @param tier hinzuzufuegendes Tier
+     * @return Ergebnis der Aktion
+     */
     public String tierHinzufuegen(Tier tier) {
 
         if(tier.getGehegeTyp().equals(this.typ)){
@@ -60,6 +73,12 @@ public abstract class Gehege{
         }
     }
 
+    /**
+     * Entfernt ein Tier aus dem Gehege.
+     *
+     * @param tier zu entfernendes Tier
+     * @return Ergebnis der Aktion
+     */
     public String tierEntfernen(Tier tier) {
 
         for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
@@ -80,22 +99,47 @@ public abstract class Gehege{
         return "Das Tier " + tier.getName() + " ist nicht in diesem Gehege.";
     }
 
+    /**
+     * Gibt Id zurück.
+     *
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Gibt MaxTiere zurück.
+     *
+     * @return maxTiere
+     */
     public int getMaxTiere() {
         return maxTiere;
     }
 
+    /**
+     * Setzt die maximale Anzahl an Tieren.
+     *
+     * @param newMax die neue maximale Anzahl an Tieren
+     */
     public void setMaxTiere(int newMax) {
         this.maxTiere = newMax;
     }
 
+    /**
+     * Gibt die Anzahlt untergebrachter Tiere zurück.
+     *
+     * @return anzahlUntergebrachteTiere
+     */
     public int getAnzahlUntergebrachteTiere() {
         return anzahlUntergebrachteTiere;
     }
 
+    /**
+     * Gibt TierNamen zurück.
+     *
+     * @return tierNamen
+     */
     public String getTierNamen() {
         String tierNamen = "";
         for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
@@ -105,19 +149,37 @@ public abstract class Gehege{
         }
         return tierNamen;
     }
-
+    
+    /**
+     * Setzt die Fuetterungszeite
+     *
+     * @param newF die neue fuetterungszeit
+     */
     public void setFuetterungszeit(String newF) {
         this.fuetterungszeit = newF;
     }
-  
+
+    /**
+     * Gibt Fuetterungszeit zurück.
+     *
+     * @return futternungszeit
+     */
     public String getFuetterungszeit() {
         return fuetterungszeit;
     }
 
+    /**
+     * Gibt Typ zurück.
+     *
+     * @return typ
+     */
     public String getTyp() {
         return typ;
     }
 
+    /**
+     * Setzt das Rechnungs-Arrys mit seinen drei Possitionen auf die verschiedenen Futterarten.
+     */
     public void futterverbrauch() {
 
         int fischfutterverbrauch = 0;
@@ -144,18 +206,38 @@ public abstract class Gehege{
         
     }
 
+    /**
+     * Gibt Futterverbrauch zurück.
+     *
+     * @return verbrauch
+     */
     public int[] getFutterverbrauch() {
         return verbrauch;
     }
 
+    /**
+     * Gibt Tiere zurück.
+     *
+     * @return tier
+     */
     public Tier[] getTiere() {
         return tier;
     }
 
+    /**
+     * Gibt Heute Gefüttert zurück.
+     *
+     * @return true falls heuteGefüttert, sonst false
+     */
     public boolean getHeuteGefüttert() {
         return heuteGefüttert;
     }
 
+    /**
+     * Setzt heuteGefüttert auf true oder false
+     *
+     * @param heuteGefüttert
+     */
     public void setHeuteGefüttert(boolean heuteGefüttert) {
         this.heuteGefüttert = heuteGefüttert;
     }

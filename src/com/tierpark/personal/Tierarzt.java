@@ -4,6 +4,11 @@ import src.com.tierpark.tier.Tier;
 
 public class Tierarzt extends Personal {
 
+    /**
+     * Erstellt einen neuen Tierarzt.
+     *
+     * @param Name Name des Tierarztes.
+     */
     public Tierarzt(String Name) {
         this(Name, "10:00-18:00", 2);
     }
@@ -12,6 +17,12 @@ public class Tierarzt extends Personal {
         super(Name, "Tierarzt", schicht, maxTiereProSchicht);
     }
 
+    /**
+     * Behandelt ein krankes Tier.
+     *
+     * @param tier zu behandelndes Tier
+     * @return Ergebnis der Behandlung
+     */
     public String heileTier(Tier tier) {
         if (!isInSchicht()) {
             return "Der Tierarzt " + this.getName() + " ist außerhalb seiner Schicht und kann nicht eingesetzt werden.";

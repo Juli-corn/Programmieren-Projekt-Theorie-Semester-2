@@ -26,6 +26,12 @@ public abstract class Personal {
     private int maxAufgabenProSchicht;
     private int aufgabenErledigt;
 
+    /**
+     * Erstellt ein neues Personalobjekt.
+     *
+     * @param Name Name des Mitarbeiters
+     * @param job Berufsbezeichnung
+     */
     public Personal(String Name, String job, String schicht, int maxAufgabenProSchicht) {
         main.id++;
         this.Name = Name;
@@ -36,14 +42,29 @@ public abstract class Personal {
         this.aufgabenErledigt = 0;
     }
 
+    /**
+     * Gibt den Namen des Mitarbeiters zurück.
+     *
+     * @return Name
+     */
     public String getName() {
         return Name;
     }
 
+    /**
+     * Gibt die Id des Mitarbeiters zurück.
+     *
+     * @return id
+     */
     public int getId() {
         return id;
     }
 
+    /**
+     * Gibt den Job des Mitarbeiters zurück.
+     *
+     * @return job
+     */
     public String getJob() {
         return job;
     }

@@ -23,6 +23,18 @@ public abstract class Tier {
     protected String gehegetyp;
     protected boolean inGehege;
     protected int gehegeId;
+
+    /**
+     * Erstellt ein neues Tier mit allen Eigenschaften.
+     *
+     * @param name Name des Tieres
+     * @param alter Alter des Tieres
+     * @param art Art des Tieres
+     * @param lieblingsfutter bevorzugtes Futter
+     * @param futtermenge benötigte Futtermenge
+     * @param gehegetyp benötigter Gehegetyp
+     */
+    
     
     public Tier(String name, int alter, String art, String lieblingsfutter, int futtermenge, String gehegetyp) {
         main.id++;
@@ -38,48 +50,102 @@ public abstract class Tier {
         this.gehegeId = -1;
     }
 
+    /**
+     * Gibt die ID des Tieres zurück.
+     *
+     * @return tId
+     */
     public int getId() {
         return tId;
     }
 
+    /**
+     * Gibt den Namen des Tieres zurück.
+     *
+     * @return name
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Gibt das Alter des Tieres zurück.
+     *
+     * @return alter
+     */
     public int getAlter() {
         return alter;
     }
 
+    /**
+     * Gibt die Art des Tieres zurück.
+     *
+     * @return art
+     */
     public String getArt() {
         return art;
     }
 
+    /**
+     * Setzt den Gesundheitszustand des Tieres.
+     *
+     * @param istKrank Gesundheitsstatus
+     */
     public void setIstKrank(boolean istKrank) {
         this.istKrank = istKrank;
         
     }
 
+    /**
+     * Prüft, ob das Tier krank ist.
+     *
+     * @return true falls krank, sonst false
+     */
     public boolean getIstKrank() {
         return istKrank;
     }
 
+    /**
+     * Prüft das Lieblingsfutter vom Tier.
+     *
+     * @return lieblingsfutter
+     */
     public String getLieblingsfutter() {
         return lieblingsfutter;
     }
 
+    /**
+     * Gibt die Futtermenge zurück.
+     *
+     * @return futtermenge
+     */
     public int getFuttermenge() {
         return futtermenge;
     }
 
-
+    /**
+     * Gibt den GehegeTyp zurück
+     *
+     * @return gehegetyp
+     */
     public String getGehegeTyp(){
         return gehegetyp;
     }
 
+    /**
+     * Gibt zurück ob das Tier im Gehege ist.
+     *
+     * @return true falls inGehege, sonst false
+     */
     public boolean getInGehege(){
         return inGehege;
     }
 
+    /**
+     * Gibt zurück ob das Tier im Gehege ist.
+     *
+     * @return true falls inGehege, sonst false
+     */
     public void setInGehege(boolean inGehege) {
         this.inGehege = inGehege;
     }

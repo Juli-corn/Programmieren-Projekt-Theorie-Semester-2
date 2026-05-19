@@ -4,6 +4,14 @@ import src.com.tierpark.gehege.*;
 
 public class Pfleger extends Personal {
 
+    private int gehegeproschicht = 2;
+    private int gefütterteGehege = 0;
+
+    /**
+     * Erstellt einen neuen Pfleger.
+     *
+     * @param Name Name des Pflegers
+     */
     public Pfleger(String Name) {
         this(Name, "08:00-16:00", 2);
     }
@@ -12,6 +20,12 @@ public class Pfleger extends Personal {
         super(Name, "Pfleger", schicht, gehegeproSchicht);
     }
 
+    /**
+     * Füttert die Tiere eines Geheges.
+     *
+     * @param gehege betroffenes Gehege
+     * @return Statusmeldung der Fütterung
+     */
     public String füttern(Gehege gehege) {
         if (!isInSchicht()) {
             return "Der Pfleger " + this.getName() + " ist außerhalb seiner Schicht und kann nicht eingesetzt werden.";
