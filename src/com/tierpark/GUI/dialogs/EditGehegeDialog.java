@@ -1,10 +1,18 @@
-package GUI.dialogs;
+package src.com.tierpark.GUI.dialogs;
 
-import GUI.panels.GehegePanel;
-import gehege.Gehege;
+/*
+ * Dialog zum Bearbeiten eines vorhandenen Geheges.
+ * Nutzer können maximalen Tierbestand und die Fütterungszeit anpassen.
+ */
+
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 public class EditGehegeDialog extends JDialog {
 
@@ -31,6 +39,16 @@ public class EditGehegeDialog extends JDialog {
             try {
                 int max = Integer.parseInt(maxTiereField.getText());
                 String ft = fuetterungField.getText();
+                    try {
+                        LocalTime.parse(ft, DateTimeFormatter.ofPattern("SS:MM"));
+                    } catch (DateTimeParseException ex) {
+                        JOptionPane.showMessageDialog(this, "Bitte Fütterungszeit im Format SS:MM eingeben.");
+                        return;
+                    }
+                if (max < gehege.getAnzahlUntergebrachteTiere()) {
+                    JOptionPane.showMessageDialog(this, "Max Tiere darf nicht kleiner als die aktuelle Anzahl der Tiere sein.");
+                    return;
+                }
 
                 gehege.setMaxTiere(max);
                 gehege.setFuetterungszeit(ft);
@@ -45,6 +63,7 @@ public class EditGehegeDialog extends JDialog {
         add(saveBtn);
 
         setLocationRelativeTo(parent);
+        setLocation(parent.getX() + 40, parent.getY() + 40);
         setVisible(true);
     }
 }

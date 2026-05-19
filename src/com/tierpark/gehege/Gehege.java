@@ -1,6 +1,6 @@
-package gehege;
-import app.main;
-import tier.Tier;
+package src.com.tierpark.gehege;
+import src.com.tierpark.app.main;
+import src.com.tierpark.tier.Tier;
 
 /*
 -> abstract oder Interface 
@@ -149,46 +149,7 @@ public abstract class Gehege{
         }
         return tierNamen;
     }
-
-    /**
-     * Gibt AnzahlUntergebrachterTiere zurück.
-     *
-     * @return anzahlUntergebrachterTiere
-     */
-    public int getAnzahlUntergebrachteTiere() {
-        return anzahlUntergebrachteTiere;
-    }
-
-    /**
-     * Gibt TierNamen zurück.
-     *
-     * @return tierNamen
-     */
-    public String getTierNamen() {
-        String tierNamen = "";
-        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
-            if (this.tier[i] != null) {
-                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
-            }
-        }
-        return tierNamen;
-    }
-
-    /**
-     * Gibt TierNamen zurück.
-     *
-     * @return tierNamen
-     */
-    public String getTierNamen() {
-        String tierNamen = "";
-        for (int i = 0; i < anzahlUntergebrachteTiere; i++) {
-            if (this.tier[i] != null) {
-                tierNamen = tierNamen + this.tier[i].getName() + " (" + this.tier[i].getClass().getSimpleName() + "), ";
-            }
-        }
-        return tierNamen;
-    }
-
+    
     /**
      * Setzt die Fuetterungszeite
      *
@@ -229,14 +190,13 @@ public abstract class Gehege{
 
             if (tier[i] == null) continue;
 
-            if (tier[i].getLieblingsfutter().equals("Fischfutter")) {
-                fischfutterverbrauch = fischfutterverbrauch + tier[i].getFuttermenge();
-
-            } else if (tier[i].getLieblingsfutter().equals("Fleischfutter")) {
-                fleischfutterverbrauch = fleischfutterverbrauch + tier[i].getFuttermenge();
-
-            } else if (tier[i].getLieblingsfutter().equals("Pflanzenfutter")) {
-                pflanzenfutterverbrauch = pflanzenfutterverbrauch + tier[i].getFuttermenge();
+            String futter = tier[i].getLieblingsfutter();
+            if ("Fischfutter".equalsIgnoreCase(futter) || "Fisch".equalsIgnoreCase(futter)) {
+                fischfutterverbrauch += tier[i].getFuttermenge();
+            } else if ("Fleischfutter".equalsIgnoreCase(futter) || "Fleisch".equalsIgnoreCase(futter)) {
+                fleischfutterverbrauch += tier[i].getFuttermenge();
+            } else if ("Pflanzenfutter".equalsIgnoreCase(futter) || "Pflanzen".equalsIgnoreCase(futter)) {
+                pflanzenfutterverbrauch += tier[i].getFuttermenge();
             }
         }
 

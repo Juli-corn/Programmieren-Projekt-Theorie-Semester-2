@@ -1,4 +1,9 @@
-package GUI.table;
+package src.com.tierpark.GUI.table;
+
+/*
+ * Renderer für Button-Zellen in Tabellen.
+ * Zeigt den Zelleninhalt als klickbaren Button an.
+ */
 
 import javax.swing.*;
 import javax.swing.table.TableCellRenderer;

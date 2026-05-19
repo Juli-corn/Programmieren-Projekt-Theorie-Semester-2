@@ -1,6 +1,6 @@
-package personal;
+package src.com.tierpark.personal;
 
-import gehege.Gehege;
+import src.com.tierpark.gehege.*;
 
 public class Pfleger extends Personal {
 
@@ -13,7 +13,11 @@ public class Pfleger extends Personal {
      * @param Name Name des Pflegers
      */
     public Pfleger(String Name) {
-        super(Name, "Pfleger");
+        this(Name, "08:00-16:00", 2);
+    }
+
+    public Pfleger(String Name, String schicht, int gehegeproSchicht) {
+        super(Name, "Pfleger", schicht, gehegeproSchicht);
     }
 
     /**
@@ -23,15 +27,21 @@ public class Pfleger extends Personal {
      * @return Statusmeldung der Fütterung
      */
     public String füttern(Gehege gehege) {
+        if (!isInSchicht()) {
+            return "Der Pfleger " + this.getName() + " ist außerhalb seiner Schicht und kann nicht eingesetzt werden.";
+        }
 
-        if(gehegeproschicht == gefütterteGehege) {
-            return "Der Pfleger " + this.getName() + " hat bereits die maximale Anzahl an Gehegen für diese Schicht gefüttert.";
-        }else if(gehege.getHeuteGefüttert() == false) {
-            gehege.setHeuteGefüttert(true);
-            gefütterteGehege++;
-            return "Der Pfleger " + this.getName() + " hat die Tiere im Gehege " + gehege.getId() + " gefüttert.";
-        } else {
+        if (!hatKapazitaet()) {
+            return "Der Pfleger " + this.getName() + " hat bereits die maximale Anzahl an Gehegen für diese Schicht bearbeitet.";
+        }
+
+        if (gehege.getHeuteGefüttert()) {
             return "Die Tiere im Gehege " + gehege.getId() + " wurden bereits heute gefüttert.";
         }
+
+        gehege.setHeuteGefüttert(true);
+        assignAufgabe();
+        return "Der Pfleger " + this.getName() + " hat die Tiere im Gehege " + gehege.getId() + " gefüttert.";
     }
-}     
+}
+

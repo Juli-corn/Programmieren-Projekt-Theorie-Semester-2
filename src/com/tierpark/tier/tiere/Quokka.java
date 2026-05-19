@@ -1,6 +1,6 @@
-package tier.tiere;
+package src.com.tierpark.tier.tiere;
 
-import tier.Tier;
+import src.com.tierpark.tier.Tier;
 
 public class Quokka extends Tier {
 

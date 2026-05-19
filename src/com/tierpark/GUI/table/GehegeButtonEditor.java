@@ -1,9 +1,14 @@
-package GUI.table;
+package src.com.tierpark.GUI.table;
 
-import GUI.controller.TierparkController;
-import GUI.dialogs.AddTierDialog;
-import GUI.panels.GehegePanel;
-import gehege.Gehege;
+/*
+ * Editor für den Öffnen-Button der Gehege-Tabelle.
+ * Öffnet das Dialogfenster mit den Tieren des ausgewählten Geheges.
+ */
+
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.dialogs.GehegeAnimalsDialog;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,7 +30,8 @@ public class GehegeButtonEditor extends DefaultCellEditor {
         button.addActionListener(e -> {
             fireEditingStopped();
             Gehege g = controller.getGehegeListe().get(row);
-            new AddTierDialog(parent, controller, g, panel);
+            new GehegeAnimalsDialog(parent, controller, g, panel);
+            panel.refresh();
         });
     }
 

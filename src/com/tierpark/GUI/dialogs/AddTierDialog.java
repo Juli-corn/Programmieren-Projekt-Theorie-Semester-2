@@ -1,11 +1,16 @@
-package GUI.dialogs;
+package src.com.tierpark.GUI.dialogs;
 
-import GUI.controller.TierparkController;
-import GUI.panels.GehegePanel;
-import GUI.table.AddButtonEditor;
-import GUI.table.ButtonRenderer;
-import gehege.Gehege;
-import tier.Tier;
+/*
+ * Dialog zum Hinzufügen von Tieren in ein bestehendes Gehege.
+ * Zeigt nur freie Tiere mit passendem Gehegetyp an.
+ */
+
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.GUI.table.AddButtonEditor;
+import src.com.tierpark.GUI.table.ButtonRenderer;
+import src.com.tierpark.gehege.Gehege;
+import src.com.tierpark.tier.Tier;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -45,6 +50,7 @@ public class AddTierDialog extends JDialog {
         refresh();
 
         setLocationRelativeTo(parent);
+        setLocation(parent.getX() + 40, parent.getY() + 40);
         setVisible(true);
     }
 

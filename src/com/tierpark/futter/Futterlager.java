@@ -1,4 +1,4 @@
-package futter;
+package src.com.tierpark.futter;
 /*
     - Futterarten 
     - tätigt Bestellungen -> Gui Meldung bei unterschreitung automatisch auffüllnd
@@ -32,7 +32,7 @@ public abstract class Futterlager {
         this.futterart = futterart;
         this.maxFutter = maxFutter;
         this.minFutter = 0;
-        this.futter = 0;
+        this.futter = maxFutter;
     }
 
     /**
@@ -74,8 +74,19 @@ public abstract class Futterlager {
     /**
      * Setzt den Mindestbestand des Futters
      */
-    public void setMinFutter() {        // Hilfsvariable für ges Futtermenge je Futterart. In GUI aktivieren für neues setzen. 
+                                                // Hilfsvariable für ges Futtermenge je Futterart. In GUI aktivieren für neues setzen. 
+    public void setMinFutter(int minFutter) {
+        this.minFutter = Math.max(0, minFutter);
+    }
 
+    public void setMaxFutter(int maxFutter) {
+        if (maxFutter < 0) {
+            throw new IllegalArgumentException("Maximalmenge darf nicht negativ sein.");
+        }
+        this.maxFutter = maxFutter;
+        if (this.futter > maxFutter) {
+            this.futter = maxFutter;
+        }
     }
 
     /**
@@ -106,17 +117,28 @@ public abstract class Futterlager {
      * @param Kg
      * @throws IllegalArgumentException Wenn nicht genügend Futter vorhanden ist
      */
-    public void ausgabe(int Kg) {     // zieht bei Fütterung das verbrauchte Material ab.
+                                    // zieht bei Fütterung das verbrauchte Material ab.
         try {
+    public String ausgabe(int Kg) {
+        if (Kg < 0) {
+            return "Ungültige Futtermenge.";
+        }
+        if (Kg > futter) {
+            bestellung();
             if (Kg > futter) {
-                throw new IllegalArgumentException("Nicht genügend Futter in Lager, minFutter checken!");
+                return "Nicht genügend Futter im Lager, auch nach Nachbestellung nicht verfügbar.";
             }
-        } catch (IllegalArgumentException e) {
-            System.out.println("Fehler bei automatischen Bestellungen: " + e.getMessage());
-        };
+        }
 
-        System.out.println("Ausgabe: " + Kg + "Kg " + futterart + ".");
-        futter = futter - Kg;
+        futter -= Kg;
+        StringBuilder message = new StringBuilder("Ausgabe: " + Kg + "Kg " + futterart + ".");
+
+        if (futter < minFutter) {
+            bestellung();
+            message.append(" Mindestbestand unterschritten, Lager aufgefüllt auf ").append(futter).append(" Kg.");
+        }
+
+        return message.toString();
     }
 
 }

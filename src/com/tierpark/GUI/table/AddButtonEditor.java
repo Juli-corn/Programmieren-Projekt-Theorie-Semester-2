@@ -1,12 +1,16 @@
-package GUI.table;
+package src.com.tierpark.GUI.table;
 
-import GUI.controller.TierparkController;
-import GUI.panels.GehegePanel;
-import gehege.Gehege;
-import tier.Tier;
+/*
+ * Editor für die Hinzufügen-Schaltfläche im Tier-Zuordnungsdialog.
+ * Ordnet das ausgewählte Tier einem Gehege zu.
+ */
+
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.*;
+import src.com.tierpark.tier.Tier;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 

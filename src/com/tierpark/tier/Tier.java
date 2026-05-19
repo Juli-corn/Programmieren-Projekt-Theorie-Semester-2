@@ -1,6 +1,6 @@
-package tier;
+package src.com.tierpark.tier;
 
-import app.main;
+import src.com.tierpark.app.main;
 /* -> abstract
     Attribute:
         - int id
@@ -22,6 +22,7 @@ public abstract class Tier {
     protected int futtermenge;     // Verbrauch kg/Tag
     protected String gehegetyp;
     protected boolean inGehege;
+    protected int gehegeId;
 
     /**
      * Erstellt ein neues Tier mit allen Eigenschaften.
@@ -33,6 +34,8 @@ public abstract class Tier {
      * @param futtermenge benötigte Futtermenge
      * @param gehegetyp benötigter Gehegetyp
      */
+    
+    
     public Tier(String name, int alter, String art, String lieblingsfutter, int futtermenge, String gehegetyp) {
         main.id++;
         this.tId = main.id;
@@ -44,6 +47,7 @@ public abstract class Tier {
         this.futtermenge = futtermenge;
         this.gehegetyp = gehegetyp;
         this.inGehege = false;
+        this.gehegeId = -1;
     }
 
     /**
@@ -144,6 +148,14 @@ public abstract class Tier {
      */
     public void setInGehege(boolean inGehege) {
         this.inGehege = inGehege;
+    }
+
+    public int getGehegeId() {
+        return gehegeId;
+    }
+
+    public void setGehegeId(int gehegeId) {
+        this.gehegeId = gehegeId;
     }
 
 }

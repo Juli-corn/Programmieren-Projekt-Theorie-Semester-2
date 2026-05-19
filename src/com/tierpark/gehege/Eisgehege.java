@@ -1,4 +1,4 @@
-package gehege;
+package src.com.tierpark.gehege;
 
 public class Eisgehege extends Gehege {
 
