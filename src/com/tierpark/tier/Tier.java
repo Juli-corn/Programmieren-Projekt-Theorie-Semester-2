@@ -133,9 +133,7 @@ public abstract class Tier {
     }
 
     /**
-     * Gibt zurück ob das Tier im Gehege ist.
-     *
-     * @return true falls inGehege, sonst false
+     * Setzt ob ein Tier im Gehe ist
      */
     public boolean getInGehege(){
         return inGehege;
@@ -150,10 +148,18 @@ public abstract class Tier {
         this.inGehege = inGehege;
     }
 
+    /**
+     * Gibt die GehegeId zurück
+     *
+     * @return gehegeId
+     */
     public int getGehegeId() {
         return gehegeId;
     }
 
+    /**
+     * Setzt die GehegeId
+     */
     public void setGehegeId(int gehegeId) {
         this.gehegeId = gehegeId;
     }

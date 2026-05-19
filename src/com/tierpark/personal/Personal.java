@@ -69,18 +69,38 @@ public abstract class Personal {
         return job;
     }
 
+    /**
+     * Gibt die Schicht des Mitarbeiters zurück.
+     *
+     * @return schicht
+     */
     public String getSchicht() {
         return schicht;
     }
 
+    /**
+     * Gibt die maximalen Aufgaben pro Schicht zurück
+     *
+     * @return maxAufgabenProSchicht
+     */
     public int getMaxAufgabenProSchicht() {
         return maxAufgabenProSchicht;
     }
 
+    /**
+     * Gibt die Anzahl der erledigten Aufgaben zurück.
+     *
+     * @return aufgabenErledigt
+     */
     public int getAufgabenErledigt() {
         return aufgabenErledigt;
     }
 
+    /**
+     * Gibt zurück, ob ein Mitarbeiter verfügbar ist
+     *
+     * @return Ergebnis
+     */
     public String getVerfuegbarkeit() {
         if (!isInSchicht()) {
             return "außerhalb der Schicht";
@@ -91,6 +111,11 @@ public abstract class Personal {
         return "verfügbar";
     }
 
+    /**
+     * Gibt zurück, ob ein Mitarbeiter in seiner Schicht ist
+     *
+     * @return Ergebnis
+     */
     public boolean isInSchicht() {
         if (schicht == null || schicht.isBlank()) {
             return false;
@@ -114,10 +139,20 @@ public abstract class Personal {
         }
     }
 
+    /**
+     * Gibt zurück, ob ein Mitarbeiter noch Kapazitäten hat
+     *
+     * @return true falls hatKapazitaet, sonst false
+     */
     public boolean hatKapazitaet() {
         return aufgabenErledigt < maxAufgabenProSchicht;
     }
 
+    /**
+     * Gibt zurück, ob ein Mitarbeiter verfügbar ist.
+     *
+     * @return true falls isVerfuegbar, sonst false
+     */
     public boolean isVerfuegbar() {
         return isInSchicht() && hatKapazitaet();
     }
@@ -130,6 +165,9 @@ public abstract class Personal {
         return true;
     }
 
+    /**
+     * Setzt die Schicht des Mitarbeiters zurück
+     */
     public void resetSchicht() {
         aufgabenErledigt = 0;
     }
