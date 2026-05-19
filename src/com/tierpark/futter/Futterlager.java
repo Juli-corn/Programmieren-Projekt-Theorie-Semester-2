@@ -117,9 +117,7 @@ public abstract class Futterlager {
      * @param Kg
      * @throws IllegalArgumentException Wenn nicht genügend Futter vorhanden ist
      */
-                                    // zieht bei Fütterung das verbrauchte Material ab.
-        try {
-    public String ausgabe(int Kg) {
+    public String ausgabe(int Kg) {            // zieht bei Fütterung das verbrauchte Material ab.
         if (Kg < 0) {
             return "Ungültige Futtermenge.";
         }
