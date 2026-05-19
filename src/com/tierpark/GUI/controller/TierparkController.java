@@ -62,6 +62,10 @@ public class TierparkController {
      */
     public void addTier(Tier t) {
         tierListe.add(t);
+        updateFutterlagerMinima();
+    }
+        
+        tierListe.add(t);
     public List<Personal> getPersonalListe() {
         return personalListe;
     }
