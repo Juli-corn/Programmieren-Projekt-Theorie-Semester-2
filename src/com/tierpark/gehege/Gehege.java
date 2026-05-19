@@ -1,6 +1,6 @@
-package gehege;
-import app.main;
-import tier.Tier;
+package src.com.tierpark.gehege;
+import src.com.tierpark.app.main;
+import src.com.tierpark.tier.Tier;
 
 /*
 -> abstract oder Interface 

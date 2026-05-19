@@ -1,13 +1,13 @@
-package GUI.table;
+package src.com.tierpark.GUI.table;
 
 /*
  * Editor für die Bearbeiten-Schaltfläche im Futterlager-Table.
  * Erlaubt das Anpassen der Maximalbestände eines Lagers.
  */
 
-import GUI.controller.TierparkController;
-import GUI.panels.FutterlagerPanel;
-import futter.Futterlager;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.panels.FutterlagerPanel;
+import src.com.tierpark.futter.Futterlager;
 
 import javax.swing.*;
 import java.awt.*;

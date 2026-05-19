@@ -1,6 +1,6 @@
-package tier;
+package src.com.tierpark.tier;
 
-import app.main;
+import src.com.tierpark.app.main;
 /* -> abstract
     Attribute:
         - int id

@@ -1,4 +1,4 @@
-package GUI.main;
+package src.com.tierpark.GUI.main;
 
 /*
  * Hauptfenster der Tierpark-Anwendung.
@@ -6,11 +6,11 @@ package GUI.main;
  * und öffnet die Unterfenster für Gehege, Personal, Tiere und Futterlager.
  */
 
-import GUI.controller.TierparkController;
-import GUI.panels.FutterlagerPanel;
-import GUI.panels.GehegePanel;
-import GUI.panels.PflegerPanel;
-import GUI.panels.TierePanel;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.panels.FutterlagerPanel;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.GUI.panels.PflegerPanel;
+import src.com.tierpark.GUI.panels.TierePanel;
 
 import javax.swing.*;
 import java.awt.*;

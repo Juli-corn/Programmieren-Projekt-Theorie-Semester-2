@@ -1,13 +1,13 @@
-package GUI.table;
+package src.com.tierpark.GUI.table;
 
 /*
  * Editor für die Füttern-Schaltfläche in der Gehege-Tabelle.
  * Löst Fütterungsaktionen aus und zeigt Ergebnisdialoge an.
  */
 
-import GUI.controller.TierparkController;
-import GUI.panels.GehegePanel;
-import gehege.Gehege;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.*;
 
 import javax.swing.*;
 import java.awt.*;

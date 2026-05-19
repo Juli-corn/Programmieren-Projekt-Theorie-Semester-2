@@ -1,14 +1,14 @@
-package GUI.panels;
+package src.com.tierpark.GUI.panels;
 
 /*
  * Panel zur Anzeige und Verwaltung des Futterlagers.
  * Zeigt Bestand, Maximal- und Mindestbestände und ermöglicht die Anpassung der Maximalmenge.
  */
 
-import GUI.controller.TierparkController;
-import GUI.table.ButtonRenderer;
-import GUI.table.FutterlagerEditButtonEditor;
-import futter.Futterlager;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.table.ButtonRenderer;
+import src.com.tierpark.GUI.table.FutterlagerEditButtonEditor;
+import src.com.tierpark.futter.Futterlager;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

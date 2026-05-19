@@ -1,13 +1,13 @@
-package GUI.panels;
+package src.com.tierpark.GUI.panels;
 
 /*
  * Panel zur Anzeige aller Tiere im Tierpark.
  * Über dieses Fenster können Tiere erstellt, gelöscht und als krank markiert werden.
  */
 
-import GUI.controller.TierparkController;
-import GUI.dialogs.CreateTierDialog;
-import tier.Tier;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.dialogs.CreateTierDialog;
+import src.com.tierpark.tier.Tier;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

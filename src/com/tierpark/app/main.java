@@ -1,13 +1,13 @@
-package app;
+package src.com.tierpark.app;
 
 import javax.swing.SwingUtilities;
 
-import GUI.main.TierparkGUI;
-import GUI.controller.TierparkController;
-import personal.*;
-import gehege.*;
-import tier.*;
-import tier.tiere.*;
+import src.com.tierpark.GUI.main.TierparkGUI;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.personal.*;
+import src.com.tierpark.gehege.*;
+import src.com.tierpark.tier.*;
+import src.com.tierpark.tier.tiere.*;
 
 public class main{
 
@@ -27,42 +27,68 @@ public class main{
     }
     
     private static void initializeTestData(TierparkController controller) {
-        // Create enclosures
+        // Gehege erstellen
         Gehege savanne = new Savannengehege(5, "08:00");
         Gehege dschungel = new Dschungelgehege(8, "10:00");
+        Gehege wasser = new Wassergehege(4, "09:00");
+        Gehege eis = new Eisgehege(3, "11:00");
         
         controller.addGehege(savanne);
         controller.addGehege(dschungel);
+        controller.addGehege(wasser);
+        controller.addGehege(eis);
         
-        // Create animals for Savanne
-        Tier lion = new Warzenschwein("Simba", 8, 15);
-        Tier zebra = new Erdmännchen("Zuri", 5, 4);
-        Tier giraffe = new Quokka("Gigi", 6, 3);
+        // Tiere für Savanne
+        Tier schwein = new Warzenschwein("Simba", 8, 15);
+        Tier erdmann = new Erdmännchen("Zuri", 5, 1);
+        Tier quokka = new Quokka("Gigi", 6, 3);
         
-        controller.addTier(lion);
-        controller.addTier(zebra);
-        controller.addTier(giraffe);
+        controller.addTier(schwein);
+        controller.addTier(erdmann);
+        controller.addTier(quokka);
         
-        // Assign animals to Savanne
-        controller.assignTierToGehege(savanne, lion);
-        controller.assignTierToGehege(savanne, zebra);
-        controller.assignTierToGehege(savanne, giraffe);
-        
-        // Create animals for Dschungel
-        Tier monkey = new Faultier("Coco", 7, 5);
-        Tier snake = new Krokodil("Sly", 10, 12);
-        Tier bird = new Pinguin("Pingu", 3, 2);
-        
-        controller.addTier(monkey);
-        controller.addTier(snake);
-        controller.addTier(bird);
-        
-        // Assign animals to Dschungel
-        controller.assignTierToGehege(dschungel, monkey);
-        controller.assignTierToGehege(dschungel, snake);
-        controller.assignTierToGehege(dschungel, bird);
+        // Tiere zu Gehege hinzufügen
+        controller.assignTierToGehege(savanne, schwein);
+        controller.assignTierToGehege(savanne, erdmann);
+        controller.assignTierToGehege(savanne, quokka);
 
-        // Create staff with Schichten und Kapazitäten
+        // Tiere für Dschungel
+        Tier faultier = new Faultier("Coco", 7, 5);
+        Tier krokodil = new Krokodil("Sly", 10, 12);
+        Tier capy = new Capybara("Capy", 4, 4);
+        
+        controller.addTier(faultier);
+        controller.addTier(krokodil);
+        controller.addTier(capy);
+        
+        // Tiere zu Gehege hinzufügen
+        controller.assignTierToGehege(dschungel, faultier);
+        controller.assignTierToGehege(dschungel, krokodil);
+        controller.assignTierToGehege(dschungel, capy);
+
+        // Tiere für Eisgehege
+        Tier seeloewe = new Seelöwe("Luna", 4, 6);
+        Tier pinguin = new Pinguin("Pingu", 3, 2);
+        
+        controller.addTier(seeloewe);
+        controller.addTier(pinguin);    
+
+        // Tiere zu Gehege hinzufügen
+        controller.assignTierToGehege(eis, seeloewe);
+        controller.assignTierToGehege(eis, pinguin);
+
+        // Tiere für Wassergehege
+        Tier axolotl = new Axolotl("Axel", 2, 1);
+        Tier bastardschildkroete = new Schildkröte("Shelly", 5, 2);
+
+        controller.addTier(axolotl);
+        controller.addTier(bastardschildkroete);
+
+        // Tiere zu Gehege hinzufügen
+        controller.assignTierToGehege(wasser, axolotl);
+        controller.assignTierToGehege(wasser, bastardschildkroete);
+
+        // Angestellte erstellen
         controller.addPersonal(new Pfleger("Max Mustermann", "08:00-16:00", 3));
         controller.addPersonal(new Pfleger("Lena Becker", "09:00-17:00", 2));
         controller.addPersonal(new Tierarzt("Anna Schmidt", "10:00-18:00", 2));

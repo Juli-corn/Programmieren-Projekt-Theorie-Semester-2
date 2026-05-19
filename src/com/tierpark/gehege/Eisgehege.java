@@ -1,8 +1,8 @@
-package gehege;
+package src.com.tierpark.gehege;
 
 public class Eisgehege extends Gehege {
 
-    public Eisgehege(int id, int maxTiere, String fuetterungszeit) {
+    public Eisgehege(int maxTiere, String fuetterungszeit) {
         super(maxTiere, fuetterungszeit, "Eisgehege");
     }
     

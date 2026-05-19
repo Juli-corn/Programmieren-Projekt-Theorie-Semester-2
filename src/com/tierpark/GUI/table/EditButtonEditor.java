@@ -1,14 +1,14 @@
-package GUI.table;
+package src.com.tierpark.GUI.table;
 
 /*
  * Editor für die Bearbeiten-Schaltfläche in der Gehege-Tabelle.
  * Öffnet einen Dialog zur Anpassung eines Geheges.
  */
 
-import GUI.controller.TierparkController;
-import GUI.dialogs.EditGehegeDialog;
-import GUI.panels.GehegePanel;
-import gehege.Gehege;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.dialogs.EditGehegeDialog;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.*;
 
 import javax.swing.*;
 import java.awt.*;

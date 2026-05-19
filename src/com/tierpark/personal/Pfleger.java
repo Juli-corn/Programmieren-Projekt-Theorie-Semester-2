@@ -1,6 +1,6 @@
-package personal;
+package src.com.tierpark.personal;
 
-import gehege.Gehege;
+import src.com.tierpark.gehege.*;
 
 public class Pfleger extends Personal {
 

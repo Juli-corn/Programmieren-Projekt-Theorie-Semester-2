@@ -1,14 +1,14 @@
-package GUI.dialogs;
+package src.com.tierpark.GUI.dialogs;
 
 /*
  * Dialog zur Anzeige der Tiere eines einzelnen Geheges.
  * Ermöglicht Hinzufügen und Entfernen von Tieren für das ausgewählte Gehege.
  */
 
-import GUI.controller.TierparkController;
-import GUI.panels.GehegePanel;
-import gehege.Gehege;
-import tier.Tier;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.Gehege;
+import src.com.tierpark.tier.Tier;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

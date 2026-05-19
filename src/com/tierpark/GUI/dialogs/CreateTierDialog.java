@@ -1,28 +1,28 @@
-package GUI.dialogs;
+package src.com.tierpark.GUI.dialogs;
 
 /*
  * Dialog zur Erstellung eines neuen Tieres.
  * Ermöglicht die Eingabe eines Namens, Alters, der Tierart und des täglichen Futterbedarfs.
  */
 
-import GUI.controller.TierparkController;
-import GUI.panels.TierePanel;
-import tier.Tier;
-import tier.tiere.Ameisenbär;
-import tier.tiere.Axolotl;
-import tier.tiere.Braunbaer;
-import tier.tiere.Capybara;
-import tier.tiere.Erdmännchen;
-import tier.tiere.Faultier;
-import tier.tiere.Fennek;
-import tier.tiere.Krokodil;
-import tier.tiere.Nacktmull;
-import tier.tiere.Pinguin;
-import tier.tiere.Quokka;
-import tier.tiere.Schildkröte;
-import tier.tiere.Seelöwe;
-import tier.tiere.Stinktier;
-import tier.tiere.Warzenschwein;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.panels.TierePanel;
+import src.com.tierpark.tier.Tier;
+import src.com.tierpark.tier.tiere.Ameisenbär;
+import src.com.tierpark.tier.tiere.Axolotl;
+import src.com.tierpark.tier.tiere.Braunbaer;
+import src.com.tierpark.tier.tiere.Capybara;
+import src.com.tierpark.tier.tiere.Erdmännchen;
+import src.com.tierpark.tier.tiere.Faultier;
+import src.com.tierpark.tier.tiere.Fennek;
+import src.com.tierpark.tier.tiere.Krokodil;
+import src.com.tierpark.tier.tiere.Nacktmull;
+import src.com.tierpark.tier.tiere.Pinguin;
+import src.com.tierpark.tier.tiere.Quokka;
+import src.com.tierpark.tier.tiere.Schildkröte;
+import src.com.tierpark.tier.tiere.Seelöwe;
+import src.com.tierpark.tier.tiere.Stinktier;
+import src.com.tierpark.tier.tiere.Warzenschwein;
 
 import javax.swing.*;
 import java.awt.*;

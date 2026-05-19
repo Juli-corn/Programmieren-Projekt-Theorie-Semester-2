@@ -1,17 +1,17 @@
-package GUI.panels;
+package src.com.tierpark.GUI.panels;
 
 /*
  * Panel zur Verwaltung und Darstellung der Gehege.
  * Enthält eine Tabelle mit Gehegedaten, Fütterungs-Buttons und Bearbeiten-Buttons.
  */
 
-import GUI.controller.TierparkController;
-import GUI.dialogs.CreateGehegeDialog;
-import GUI.table.ButtonRenderer;
-import GUI.table.EditButtonEditor;
-import GUI.table.GehegeButtonEditor;
-import GUI.table.FeedButtonEditor;
-import gehege.Gehege;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.dialogs.CreateGehegeDialog;
+import src.com.tierpark.GUI.table.ButtonRenderer;
+import src.com.tierpark.GUI.table.EditButtonEditor;
+import src.com.tierpark.GUI.table.GehegeButtonEditor;
+import src.com.tierpark.GUI.table.FeedButtonEditor;
+import src.com.tierpark.gehege.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

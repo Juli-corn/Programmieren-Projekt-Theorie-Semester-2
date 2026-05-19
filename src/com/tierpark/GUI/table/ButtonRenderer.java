@@ -1,4 +1,4 @@
-package GUI.table;
+package src.com.tierpark.GUI.table;
 
 /*
  * Renderer für Button-Zellen in Tabellen.

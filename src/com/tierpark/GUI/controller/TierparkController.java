@@ -1,4 +1,4 @@
-package GUI.controller;
+package src.com.tierpark.GUI.controller;
 
 /*
  * Zentrale Steuerung für den Tierpark.
@@ -6,16 +6,16 @@ package GUI.controller;
  * Liefert GUI-kompatible Daten sowie Aktionen für Fütterung und Krankheitsverwaltung.
  */
 
-import app.main;
-import futter.Fleischlager;
-import futter.Fischlager;
-import futter.Futterlager;
-import futter.Pflanzenlager;
-import gehege.Gehege;
-import personal.Pfleger;
-import personal.Personal;
-import personal.Tierarzt;
-import tier.Tier;
+import src.com.tierpark.app.main;
+import src.com.tierpark.futter.Fleischlager;
+import src.com.tierpark.futter.Fischlager;
+import src.com.tierpark.futter.Futterlager;
+import src.com.tierpark.futter.Pflanzenlager;
+import src.com.tierpark.gehege.Gehege;
+import src.com.tierpark.personal.Pfleger;
+import src.com.tierpark.personal.Personal;
+import src.com.tierpark.personal.Tierarzt;
+import src.com.tierpark.tier.Tier;
 
 import java.util.ArrayList;
 import java.util.Arrays;

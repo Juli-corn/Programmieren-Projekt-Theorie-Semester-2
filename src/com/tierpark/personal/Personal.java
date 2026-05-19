@@ -1,6 +1,6 @@
-package personal;
+package src.com.tierpark.personal;
 
-import app.main;
+import src.com.tierpark.app.main;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;

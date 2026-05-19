@@ -1,4 +1,4 @@
-package futter;
+package src.com.tierpark.futter;
 /*
     - Futterarten 
     - tätigt Bestellungen -> Gui Meldung bei unterschreitung automatisch auffüllnd

@@ -1,6 +1,6 @@
-package personal;
+package src.com.tierpark.personal;
 
-import tier.Tier;
+import src.com.tierpark.tier.Tier;
 
 public class Tierarzt extends Personal {
 

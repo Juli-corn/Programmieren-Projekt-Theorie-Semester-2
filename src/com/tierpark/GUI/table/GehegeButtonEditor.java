@@ -1,14 +1,14 @@
-package GUI.table;
+package src.com.tierpark.GUI.table;
 
 /*
  * Editor für den Öffnen-Button der Gehege-Tabelle.
  * Öffnet das Dialogfenster mit den Tieren des ausgewählten Geheges.
  */
 
-import GUI.controller.TierparkController;
-import GUI.dialogs.GehegeAnimalsDialog;
-import GUI.panels.GehegePanel;
-import gehege.Gehege;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.dialogs.GehegeAnimalsDialog;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.*;
 
 import javax.swing.*;
 import java.awt.*;

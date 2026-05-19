@@ -1,12 +1,12 @@
-package GUI.dialogs;
+package src.com.tierpark.GUI.dialogs;
 
 /*
  * Dialog zum Bearbeiten eines vorhandenen Geheges.
  * Nutzer können maximalen Tierbestand und die Fütterungszeit anpassen.
  */
 
-import GUI.panels.GehegePanel;
-import gehege.Gehege;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.*;
 
 import javax.swing.*;
 import java.awt.*;

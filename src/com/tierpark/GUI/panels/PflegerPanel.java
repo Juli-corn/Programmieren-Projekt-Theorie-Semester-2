@@ -1,14 +1,14 @@
-package GUI.panels;
+package src.com.tierpark.GUI.panels;
 
 /*
  * Panel zur Personalverwaltung.
  * Hier können Pfleger und Tierärzte hinzugefügt und gelöscht werden.
  */
 
-import GUI.controller.TierparkController;
-import personal.Pfleger;
-import personal.Personal;
-import personal.Tierarzt;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.personal.Pfleger;
+import src.com.tierpark.personal.Personal;
+import src.com.tierpark.personal.Tierarzt;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

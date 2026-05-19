@@ -1,15 +1,15 @@
-package GUI.dialogs;
+package src.com.tierpark.GUI.dialogs;
 
 /*
  * Dialog zum Erstellen eines neuen Geheges.
  * Der Benutzer wählt Typ, maximale Kapazität und Fütterungszeit aus.
  */
 
-import GUI.controller.TierparkController;
-import GUI.panels.GehegePanel;
-import gehege.Dschungelgehege;
-import gehege.Gehege;
-import gehege.Savannengehege;
+import src.com.tierpark.GUI.controller.TierparkController;
+import src.com.tierpark.GUI.panels.GehegePanel;
+import src.com.tierpark.gehege.Dschungelgehege;
+import src.com.tierpark.gehege.*;
+import src.com.tierpark.gehege.Savannengehege;
 
 import javax.swing.*;
 import java.awt.*;
@@ -61,13 +61,13 @@ public class CreateGehegeDialog extends JDialog {
                         g = new Dschungelgehege(maxTiere, fT);
                         break;
                     case "Wassergehege":
-                        g = new gehege.Wassergehege(0, maxTiere, fT);
+                        g = new Wassergehege(maxTiere, fT);
                         break;
                     case "Eisgehege":
-                        g = new gehege.Eisgehege(0, maxTiere, fT);
+                        g = new Eisgehege(maxTiere, fT);
                         break;
                     case "Waldgehege":
-                        g = new gehege.Waldgehege(0, maxTiere, fT);
+                        g = new Waldgehege(maxTiere, fT);
                         break;
                     default:
                         g = new Savannengehege(maxTiere, fT);
