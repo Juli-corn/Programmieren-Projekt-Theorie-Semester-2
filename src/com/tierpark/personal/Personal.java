@@ -114,6 +114,8 @@ public abstract class Personal {
     /**
      * Gibt zurück, ob ein Mitarbeiter in seiner Schicht ist
      *
+     * 7.1.1 Exceptions in Java. Java ist auch eine Insel JavaBuchFrame.PDF https://www.raffia.ch/content/docplus/Java%20ist%20auch%20eine%20Insel%20-%20Ullenboom%202001.pdf
+     *
      * @return Ergebnis
      */
     public boolean isInSchicht() {

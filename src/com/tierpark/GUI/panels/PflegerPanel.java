@@ -60,6 +60,9 @@ public class PflegerPanel {
         frame.setVisible(true);
     }
 
+    /**
+     * 7.1.1 Exceptions in Java. Java ist auch eine Insel JavaBuchFrame.PDF https://www.raffia.ch/content/docplus/Java%20ist%20auch%20eine%20Insel%20-%20Ullenboom%202001.pdf
+     */
     private void createPersonal() {
         String name = JOptionPane.showInputDialog(frame, "Name des Mitarbeiters:");
         if (name == null || name.trim().isEmpty()) {

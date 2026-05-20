@@ -73,6 +73,9 @@ public abstract class Futterlager {
 
     /**
      * Setzt den Mindestbestand des Futters
+     *
+     * 7.1.4 Die Throws-Klausel. Java ist auch eine Insel JavaBuchFrame.PDF https://www.raffia.ch/content/docplus/Java%20ist%20auch%20eine%20Insel%20-%20Ullenboom%202001.pdf
+     *
      */
                                                 // Hilfsvariable für ges Futtermenge je Futterart. In GUI aktivieren für neues setzen. 
     public void setMinFutter(int minFutter) {

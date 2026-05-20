@@ -21,6 +21,11 @@ public class FutterlagerEditButtonEditor extends DefaultCellEditor {
     private final JFrame parent;
     private int row;
 
+    /**
+     *
+     * 7.1.1 Exceptions in Java. Java ist auch eine Insel JavaBuchFrame.PDF https://www.raffia.ch/content/docplus/Java%20ist%20auch%20eine%20Insel%20-%20Ullenboom%202001.pdf
+     *
+     */
     public FutterlagerEditButtonEditor(JCheckBox box, TierparkController controller, FutterlagerPanel panel, JFrame parent) {
         super(box);
         this.controller = controller;
