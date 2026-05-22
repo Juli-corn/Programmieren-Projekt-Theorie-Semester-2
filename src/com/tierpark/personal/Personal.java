@@ -159,6 +159,11 @@ public abstract class Personal {
         return isInSchicht() && hatKapazitaet();
     }
 
+    /**
+     * Wenn der Mitarbeiter nicht in der Schicht ist oder keine Kapazität mehr hat, wird der Wert aufgaben erledigt um 1 erhöht und true zurückgegeben sonst wird false zurückgegeben.
+     *
+     * @return false, wenn der Mitarbeiter nicht in seiner Schicht ist oder keine Kapazitaet mehr hat, sonst true und setze aufgabenErledigt auf +1
+     */
     public boolean assignAufgabe() {
         if (!isInSchicht() || !hatKapazitaet()) {
             return false;
